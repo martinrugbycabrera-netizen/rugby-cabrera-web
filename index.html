@@ -32,6 +32,33 @@
         .club-border-accent {
             border-color: #f59e0b;
         }
+
+        /* Estilos para botones de idioma */
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            transition: all duration-300;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .lang-btn.inactive {
+            color: #9ca3af;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .lang-btn.active {
+            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+
+        .lang-btn.inactive:hover {
+            color: #d1d5db;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -53,15 +80,14 @@
                 <a href="#contacto" class="hover:club-text-accent transition duration-300" data-i18n="nav-contact">Contacto</a>
             </div>
 
-            <!-- Selector de Idioma -->
-            <div class="flex items-center space-x-4">
-                <select id="language-selector" class="bg-slate-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
-                    <option value="es">Español</option>
-                    <option value="ca">Català</option>
-                </select>
+            <!-- Selector de Idioma - Botones lado a lado -->
+            <div class="flex items-center space-x-2">
+                <button id="lang-es" class="lang-btn active" data-lang="es">Español</button>
+                <span class="text-gray-500">|</span>
+                <button id="lang-ca" class="lang-btn inactive" data-lang="ca">Català</button>
 
                 <!-- Botón de Menú Móvil (Hamburguesa) - Simulado -->
-                <button class="md:hidden p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <button class="md:hidden ml-4 p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
@@ -326,9 +352,8 @@
     </footer>
 
     <!-- Script de Traducciones -->
-    <script src="translations.js"></script>
     <script>
-        // Objeto global de traducciones (se puede complementar con el archivo translations.js)
+        // Objeto global de traducciones
         const translations = {
             es: {
                 'nav-home': 'Inicio',
@@ -398,19 +423,31 @@
                     element.textContent = translations[lang][key];
                 }
             });
+
+            // Actualizar estado de botones
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active', 'inactive');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.add('inactive');
+                }
+            });
+
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // Selector de idioma
-        const languageSelector = document.getElementById('language-selector');
-        languageSelector.addEventListener('change', (e) => {
-            changeLanguage(e.target.value);
+        // Event listeners para botones de idioma
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeLanguage(btn.getAttribute('data-lang'));
+            });
         });
 
         // Cargar idioma guardado o por defecto
         document.addEventListener('DOMContentLoaded', () => {
             const savedLanguage = localStorage.getItem('preferredLanguage') || 'es';
-            languageSelector.value = savedLanguage;
             changeLanguage(savedLanguage);
         });
     </script>
@@ -437,9 +474,6 @@
                             const headerHeight = header.offsetHeight;
                             
                             // 2. Calcular la posición de desplazamiento con un offset
-                            // targetElement.offsetTop es la posición del elemento.
-                            // Restamos la altura de la cabecera para que no quede cubierto.
-                            // Se resta 16px extra de padding para mejor visualización.
                             const offsetTop = targetElement.offsetTop - headerHeight - 16; 
                             
                             window.scrollTo({
@@ -448,8 +482,7 @@
                             });
                         }
 
-                        // 3. Cerrar el menú móvil si está abierto (especialmente en dispositivos táctiles)
-                        // Verifica si el enlace clicado está dentro del menú móvil.
+                        // 3. Cerrar el menú móvil si está abierto
                         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                             mobileMenu.classList.add('hidden');
                         }
