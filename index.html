@@ -46,27 +46,35 @@
             
             <!-- Menú de Navegación (Escritorio) -->
             <div class="hidden md:flex space-x-8 text-lg font-medium">
-                <a href="#inicio" class="hover:club-text-accent transition duration-300">Inicio</a>
-                <a href="#equipos" class="hover:club-text-accent transition duration-300">Equipos</a>
-                <a href="#partidos" class="hover:club-text-accent transition duration-300">Partidos</a>
-                <a href="#noticias" class="hover:club-text-accent transition duration-300">Noticias</a>
-                <a href="#contacto" class="hover:club-text-accent transition duration-300">Contacto</a>
+                <a href="#inicio" class="hover:club-text-accent transition duration-300" data-i18n="nav-home">Inicio</a>
+                <a href="#equipos" class="hover:club-text-accent transition duration-300" data-i18n="nav-teams">Equipos</a>
+                <a href="#partidos" class="hover:club-text-accent transition duration-300" data-i18n="nav-matches">Partidos</a>
+                <a href="#noticias" class="hover:club-text-accent transition duration-300" data-i18n="nav-news">Noticias</a>
+                <a href="#contacto" class="hover:club-text-accent transition duration-300" data-i18n="nav-contact">Contacto</a>
             </div>
 
-            <!-- Botón de Menú Móvil (Hamburguesa) - Simulado -->
-            <button class="md:hidden p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <!-- Selector de Idioma -->
+            <div class="flex items-center space-x-4">
+                <select id="language-selector" class="bg-slate-700 text-white px-3 py-2 rounded-lg font-medium text-sm">
+                    <option value="es">Español</option>
+                    <option value="ca">Català</option>
+                </select>
+
+                <!-- Botón de Menú Móvil (Hamburguesa) - Simulado -->
+                <button class="md:hidden p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
         </nav>
 
         <!-- Menú Móvil Desplegable -->
         <div id="mobile-menu" class="hidden md:hidden club-bg-dark border-t border-slate-700">
             <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
-                <a href="#inicio" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700">Inicio</a>
-                <a href="#equipos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700">Equipos</a>
-                <a href="#partidos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700">Partidos</a>
-                <a href="#noticias" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700">Noticias</a>
-                <a href="#contacto" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700">Contacto</a>
+                <a href="#inicio" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-home">Inicio</a>
+                <a href="#equipos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-teams">Equipos</a>
+                <a href="#partidos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-matches">Partidos</a>
+                <a href="#noticias" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-news">Noticias</a>
+                <a href="#contacto" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-contact">Contacto</a>
             </div>
         </div>
     </header>
@@ -80,17 +88,17 @@
             </div>
             
             <div class="relative z-10 text-center px-6">
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 club-text-accent">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 club-text-accent" data-i18n="hero-title">
                     MÁS QUE UN JUEGO. ES RUGBY CABRERA.
                 </h1>
-                <p class="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                <p class="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto" data-i18n="hero-subtitle">
                     Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#partidos" class="px-8 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105">
+                    <a href="#partidos" class="px-8 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105" data-i18n="btn-next-matches">
                         Próximos Partidos
                     </a>
-                    <a href="#contacto" class="px-8 py-3 bg-white text-gray-900 font-semibold text-lg rounded-xl shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+                    <a href="#contacto" class="px-8 py-3 bg-white text-gray-900 font-semibold text-lg rounded-xl shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105" data-i18n="btn-join-team">
                         Únete al Equipo
                     </a>
                 </div>
@@ -102,7 +110,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Sub-sección de Equipos -->
                 <div class="text-center">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 club-text-accent">Nuestros Equipos de Cantera</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 club-text-accent" data-i18n="teams-title">Nuestros Equipos de Cantera</h2>
                     <p class="text-xl text-gray-300 mb-12 max-w-5xl mx-auto">
                         Fomentamos el amor por el rugby desde las edades más tempranas. Cada categoría se enfoca en el desarrollo de habilidades motoras, trabajo en equipo y, sobre todo, la diversión.
                     </p>
@@ -152,7 +160,7 @@
         <!-- SECCIÓN PRÓXIMO PARTIDO -->
         <section id="partidos" class="py-16 md:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900">Próximo Partido</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900" data-i18n="match-title">Próximo Partido</h2>
 
                 <!-- Tarjeta Minimalista del Partido -->
                 <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-2xl transition duration-500 hover:shadow-3xl">
@@ -160,9 +168,9 @@
                         <div class="flex flex-col md:flex-row items-center justify-between">
                             <!-- Equipo Local -->
                             <div class="text-center mb-6 md:mb-0">
-                                <p class="text-xl font-medium text-gray-300">Local</p>
+                                <p class="text-xl font-medium text-gray-300" data-i18n="match-home">Local</p>
                                 <p class="text-4xl sm:text-6xl font-extrabold club-text-accent">RUGBY CABRERA</p>
-                                <p class="text-sm text-gray-400 mt-1">Nuestra Sede</p>
+                                <p class="text-sm text-gray-400 mt-1" data-i18n="match-our-home">Nuestra Sede</p>
                             </div>
 
                             <!-- VS Central -->
@@ -172,9 +180,9 @@
 
                             <!-- Equipo Visitante -->
                             <div class="text-center">
-                                <p class="text-xl font-medium text-gray-300">Visitante</p>
+                                <p class="text-xl font-medium text-gray-300" data-i18n="match-away">Visitante</p>
                                 <p class="text-4xl sm:text-6xl font-extrabold text-white">UES</p>
-                                <p class="text-sm text-gray-400 mt-1">Rival de Liga</p>
+                                <p class="text-sm text-gray-400 mt-1" data-i18n="match-rival">Rival de Liga</p>
                             </div>
                         </div>
                     </div>
@@ -182,21 +190,21 @@
                     <!-- Detalles del Partido -->
                     <div class="p-8 md:p-12 grid grid-cols-1 sm:grid-cols-3 gap-6 bg-gray-50 border-t border-gray-100">
                         <div class="text-center">
-                            <p class="text-sm font-semibold text-gray-500">FECHA</p>
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-date">FECHA</p>
                             <p class="text-xl font-bold text-gray-900 mt-1">Sábado, 15 de Noviembre</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-sm font-semibold text-gray-500">HORA</p>
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-time">HORA</p>
                             <p class="text-xl font-bold text-gray-900 mt-1">17:00 HRS</p>
                         </div>
                         <div class="text-center">
-                            <p class="text-sm font-semibold text-gray-500">LUGAR</p>
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-place">LUGAR</p>
                             <p class="text-xl font-bold text-gray-900 mt-1">Cabrera Stadium</p>
                         </div>
                     </div>
                     
                     <div class="p-8 text-center bg-gray-100 border-t border-gray-200">
-                        <a href="#" class="inline-block px-10 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300">
+                        <a href="#" class="inline-block px-10 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300" data-i18n="btn-get-tickets">
                             Consigue tus Entradas
                         </a>
                     </div>
@@ -207,10 +215,10 @@
         <!-- SECCIÓN NOTICIAS DESTACADAS (minimalista) -->
         <section id="noticias" class="py-16 club-bg-dark text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent">Últimas Noticias</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent" data-i18n="news-title">Últimas Noticias</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Noticia 1 (MODIFICADA) -->
+                    <!-- Noticia 1 -->
                     <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
                         <p class="text-sm text-gray-400 mb-2">25 OCT 2025 | EQUIPO SENIOR</p>
                         <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
@@ -219,7 +227,7 @@
                         <p class="text-gray-400 line-clamp-3">
                             Nuestro equipo senior demostró su valía en un partido reñido, asegurando una victoria clave que nos posiciona en la cima de la liga. La defensa fue fundamental...
                         </p>
-                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition">Leer más &rarr;</a>
+                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
                     </div>
                     
                     <!-- Noticia 2 -->
@@ -231,7 +239,7 @@
                         <p class="text-gray-400 line-clamp-3">
                             Invitamos a los más jóvenes a unirse a nuestra cantera. Fomentamos los valores del rugby desde la base con entrenadores certificados y un ambiente seguro.
                         </p>
-                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition">Leer más &rarr;</a>
+                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
                     </div>
                     
                     <!-- Noticia 3 -->
@@ -243,7 +251,7 @@
                         <p class="text-gray-400 line-clamp-3">
                             Se ha anunciado la fecha para nuestra tradicional cena de fin de temporada. Un momento para agradecer a todos los que hacen posible este club...
                         </p>
-                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition">Leer más &rarr;</a>
+                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -252,8 +260,8 @@
         <!-- SECCIÓN CONTACTO / ÚNETE -->
         <section id="contacto" class="py-16 md:py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900">¿Quieres ser parte de Rugby Cabrera?</h2>
-                <p class="text-xl text-center text-gray-600 mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900" data-i18n="contact-title">¿Quieres ser parte de Rugby Cabrera?</h2>
+                <p class="text-xl text-center text-gray-600 mb-12" data-i18n="contact-subtitle">
                     Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.
                 </p>
 
@@ -261,19 +269,19 @@
                 <form class="bg-white p-8 md:p-10 border border-gray-100 rounded-2xl shadow-xl">
                     <div class="space-y-6">
                         <div>
-                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-name">Nombre Completo</label>
                             <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Juan Pérez">
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-email">Correo Electrónico</label>
                             <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="email@ejemplo.com">
                         </div>
                         <div>
-                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje / Consulta</label>
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-message">Mensaje / Consulta</label>
                             <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Me gustaría unirme al equipo senior..."></textarea>
                         </div>
                         <div>
-                            <button type="submit" class="w-full px-4 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-[1.01]">
+                            <button type="submit" class="w-full px-4 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-[1.01]" data-i18n="btn-send">
                                 Enviar Mensaje
                             </button>
                         </div>
@@ -296,7 +304,7 @@
                 </a>
                 <!-- Instagram -->
                 <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.75 0 3.1.01 4.19.06 1.09.05 1.76.16 2.29.35.6.22 1.05.53 1.45.93.4.4.7.85.93 1.45.19.53.3 1.2.35 2.29.05 1.09.06 1.44.06 4.19s-.01 3.1-.06 4.19c-.05 1.09-.16 1.76-.35 2.29-.22.6-.53 1.05-.93 1.45-.4.4-.85.7-1.45.93-.53.19-1.2.3-2.29.35-1.09.05-1.44.06-4.19.06s-3.1-.01-4.19-.06c-1.09-.05-1.76-.16-2.29-.35-.6-.22-1.05-.53-1.45-.93-.4-.4-.7-.85-.93-1.45-.19-.53-.3-1.2-.35 2.29-.05-1.09-.06-1.44-.06-4.19s.01-3.1.06-4.19c.05-1.09.16-1.76.35-2.29.22-.6.53-1.05.93-1.45.4-.4.85-.7 1.45-.93.53-.19 1.2-.3 2.29-.35 1.09-.05 1.44-.06 4.19-.06zm0-2c-2.79 0-3.16.01-4.26.07-1.1.05-1.87.18-2.52.43-.66.26-1.23.6-1.8.6A5.4 5.4 0 002.39 5.39c-.77.77-1.11 1.34-1.37 1.9-.25.65-.38 1.42-.43 2.52C.01 10.84 0 11.21 0 14s.01 3.16.07 4.26c.05 1.1.18 1.87.43 2.52.26.66.6 1.23 1.17 1.8.57.57 1.14.91 1.8.6.65.25 1.42.38 2.52.43 1.1.05 1.47.07 4.26.07s3.16-.01 4.26-.07c1.1-.05 1.87-.18 2.52-.43.66-.26 1.23-.6 1.8-.6a5.4 5.4 0 002.61-2.61c.26-.65.38-1.42.43-2.52.06-1.1.07-1.47.07-4.26s-.01-3.16-.07-4.26c-.05-1.1-.18-1.87-.43-2.52-.26-.66-.6-1.23-1.17-1.8-.57-.57-1.14-.91-1.8-.6-.65-.25-1.42-.38-2.52-.43C15.16 2.01 14.8 2 12 2zM12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.75 0 3.1.01 4.19.06 1.09.05 1.76.16 2.29.35.6.22 1.05.53 1.45.93.4.4.7.85.93 1.45.19.53.3 1.2.35 2.29.05 1.09.06 1.44.06 4.19s-.01 3.1-.06 4.19c-.05 1.09-.16 1.76-.35 2.29-.22.6-.53 1.05-.93 1.45-.4.4-.85.7-1.45.93-.53.19-1.2.3-2.29.35-1.09.05-1.44.06-4.19.06s-3.1-.01-4.19-.06c-1.09-.05-1.76-.16-2.29-.35-.6-.22-1.05-.53-1.45-.93-.4-.4-.7-.85-.93-1.45-.19-.53-.3-1.2-.35-2.29-.05-1.09-.06-1.44-.06-4.19s.01-3.1.06-4.19c.05-1.09.16-1.76.35-2.29.22-.6.53-1.05.93-1.45.4-.4.85-.7 1.45-.93.53-.19 1.2-.3 2.29-.35 1.09-.05 1.44-.06 4.19-.06zm0-2c-2.79 0-3.16.01-4.26.07-1.1.05-1.87.18-2.52.43-.66.26-1.23.6-1.8.6a5.4 5.4 0 00-2.61 2.61c-.77.77-1.11 1.34-1.37 1.9-.25.65-.38 1.42-.43 2.52-.06 1.1-.07 1.47-.07 4.26s.01 3.16.07 4.26c.05 1.1.18 1.87.43 2.52.26.66.6 1.23 1.17 1.8.57.57 1.14.91 1.8.6.65.25 1.42.38 2.52.43 1.1.05 1.47.07 4.26.07s3.16-.01 4.26-.07c1.1-.05 1.87-.18 2.52-.43.66-.26 1.23-.6 1.8-.6a5.4 5.4 0 002.61-2.61c.26-.65.38-1.42.43-2.52.06-1.1.07-1.47.07-4.26s-.01-3.16-.07-4.26c-.05-1.1-.18-1.87-.43-2.52-.26-.66-.6-1.23-1.17-1.8-.57-.57-1.14-.91-1.8-.6-.65-.25-1.42-.38-2.52-.43-1.1-.05-1.47-.07-4.26-.07zm0 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
                 </a>
                 <!-- Twitter/X -->
                 <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
@@ -316,6 +324,96 @@
             <p class="text-sm text-gray-600">&copy; 2025 Rugby Cabrera. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- Script de Traducciones -->
+    <script src="translations.js"></script>
+    <script>
+        // Objeto global de traducciones (se puede complementar con el archivo translations.js)
+        const translations = {
+            es: {
+                'nav-home': 'Inicio',
+                'nav-teams': 'Equipos',
+                'nav-matches': 'Partidos',
+                'nav-news': 'Noticias',
+                'nav-contact': 'Contacto',
+                'hero-title': 'MÁS QUE UN JUEGO. ES RUGBY CABRERA.',
+                'hero-subtitle': 'Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.',
+                'btn-next-matches': 'Próximos Partidos',
+                'btn-join-team': 'Únete al Equipo',
+                'teams-title': 'Nuestros Equipos de Cantera',
+                'match-title': 'Próximo Partido',
+                'match-home': 'Local',
+                'match-away': 'Visitante',
+                'match-our-home': 'Nuestra Sede',
+                'match-rival': 'Rival de Liga',
+                'match-date': 'FECHA',
+                'match-time': 'HORA',
+                'match-place': 'LUGAR',
+                'btn-get-tickets': 'Consigue tus Entradas',
+                'news-title': 'Últimas Noticias',
+                'btn-read-more': 'Leer más →',
+                'contact-title': '¿Quieres ser parte de Rugby Cabrera?',
+                'contact-subtitle': 'Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.',
+                'form-name': 'Nombre Completo',
+                'form-email': 'Correo Electrónico',
+                'form-message': 'Mensaje / Consulta',
+                'btn-send': 'Enviar Mensaje'
+            },
+            ca: {
+                'nav-home': 'Inici',
+                'nav-teams': 'Equips',
+                'nav-matches': 'Partits',
+                'nav-news': 'Notícies',
+                'nav-contact': 'Contacte',
+                'hero-title': 'MÉS QUE UN JOC. ÉS RUGBY CABRERA.',
+                'hero-subtitle': 'Uneix-te a la nostra passió. Descobreix els nostres valors i els pròxims encontres.',
+                'btn-next-matches': 'Pròxims Partits',
+                'btn-join-team': 'Uneix-te a l\'Equip',
+                'teams-title': 'Els Nostres Equips de Cantera',
+                'match-title': 'Pròxim Partit',
+                'match-home': 'Local',
+                'match-away': 'Visitant',
+                'match-our-home': 'La Nostra Seu',
+                'match-rival': 'Rival de Lliga',
+                'match-date': 'DATA',
+                'match-time': 'HORA',
+                'match-place': 'LLOC',
+                'btn-get-tickets': 'Obté les teves Entrades',
+                'news-title': 'Últimes Notícies',
+                'btn-read-more': 'Llegir més →',
+                'contact-title': 'Vols ser part de Rugby Cabrera?',
+                'contact-subtitle': 'Si tens passió pel rugby, contacta\'ns. Busquem jugadors, voluntaris i patrocinadors.',
+                'form-name': 'Nom Complet',
+                'form-email': 'Correu Electrònic',
+                'form-message': 'Missatge / Consulta',
+                'btn-send': 'Enviar Missatge'
+            }
+        };
+
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Selector de idioma
+        const languageSelector = document.getElementById('language-selector');
+        languageSelector.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Cargar idioma guardado o por defecto
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'es';
+            languageSelector.value = savedLanguage;
+            changeLanguage(savedLanguage);
+        });
+    </script>
 
     <!-- Script para la funcionalidad del menú móvil y el desplazamiento con offset -->
     <script>
