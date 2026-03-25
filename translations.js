@@ -1,0 +1,1 @@
+{"header":{"title":{"es":"Título en Español","ca":"Títol en Català"}},"hero":{"welcome":{"es":"Bienvenido a Rugby Cabrera","ca":"Benvingut a Rugby Cabrera"}},"teams":{"title":{"es":"Equipos","ca":"Equips"}},"matches":{"title":{"es":"Partidos","ca":"Partits"}},"news":{"title":{"es":"Noticias","ca":"Notícies"}},"footer":{"contact":{"es":"Contacto","ca":"Contacte"}}}
