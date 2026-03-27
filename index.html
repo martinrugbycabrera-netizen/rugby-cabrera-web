@@ -237,49 +237,18 @@
         </section>
         
         <!-- SECCIÓN NOTICIAS DESTACADAS (minimalista) -->
-        <section id="noticias" class="py-16 club-bg-dark text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent" data-i18n="news-title">Últimas Noticias</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Noticia 1 -->
-                    <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
-                        <p class="text-sm text-gray-400 mb-2">25 OCT 2025 | EQUIPO SENIOR</p>
-                        <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
-                            Victoria Épica contra el Sant Cugat
-                        </h3>
-                        <p class="text-gray-400 line-clamp-3">
-                            Nuestro equipo senior demostró su valía en un partido reñido, asegurando una victoria clave que nos posiciona en la cima de la liga. La defensa fue fundamental...
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
-                    </div>
-                    
-                    <!-- Noticia 2 -->
-                    <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
-                        <p class="text-sm text-gray-400 mb-2">18 OCT 2025 | CANTERA</p>
-                        <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
-                            Abiertas las Inscripciones para la Escuela Infantil
-                        </h3>
-                        <p class="text-gray-400 line-clamp-3">
-                            Invitamos a los más jóvenes a unirse a nuestra cantera. Fomentamos los valores del rugby desde la base con entrenadores certificados y un ambiente seguro.
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
-                    </div>
-                    
-                    <!-- Noticia 3 -->
-                    <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
-                        <p class="text-sm text-gray-400 mb-2">10 OCT 2025 | EVENTOS</p>
-                        <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
-                            Cena Anual de Socios y Celebración
-                        </h3>
-                        <p class="text-gray-400 line-clamp-3">
-                            Se ha anunciado la fecha para nuestra tradicional cena de fin de temporada. Un momento para agradecer a todos los que hacen posible este club...
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+<section id="noticias" class="py-16 club-bg-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent" data-i18n="news-title">Últimas Noticias</h2>
+    <div id="news-wrapper" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div id="news-cat-1" class="space-y-6"></div>
+      <div id="news-cat-2" class="space-y-6"></div>
+      <div id="news-cat-3" class="space-y-6"></div>
+    </div>
+  </div>
+</section>
+
 
         <!-- SECCIÓN CONTACTO / ÚNETE -->
         <section id="contacto" class="py-16 md:py-24 bg-white">
@@ -479,5 +448,13 @@
             });
         });
     </script>
+
+<script>
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
+async function cargarNoticias(){try{const res=await fetch(SHEET_URL);const raw=await res.text();const json=JSON.parse(raw.substring(47,raw.length-2));const filas=json.table.rows.map(r=>r.c.map(c=>c?c.v:""));const noticias=filas.map(f=>({id:Number(f[0]),fecha:f[1],seccion:f[2],titulo:f[3],texto:f[4]}));renderNoticias(noticias);}catch(e){console.error(e);}}
+function renderNoticias(lista){const c1=document.getElementById('news-cat-1');const c2=document.getElementById('news-cat-2');const c3=document.getElementById('news-cat-3');c1.innerHTML=c2.innerHTML=c3.innerHTML="";lista.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));lista.forEach(n=>{const card=`<div class='bg-slate-800 p-6 rounded-2xl shadow-xl'><p class='text-xs text-gray-400 mb-2'>${n.fecha}</p><h3 class='text-xl font-bold club-text-accent mb-2'>${n.titulo}</h3><p class='text-gray-300 mb-4'>${n.texto}</p><p class='text-sm text-gray-500 italic'>${n.seccion}</p></div>`;if(n.id===1)c1.innerHTML+=card;else if(n.id===2)c2.innerHTML+=card;else if(n.id===3)c3.innerHTML+=card;});}
+cargarNoticias();
+</script>
+
 </body>
 </html>
