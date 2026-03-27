@@ -1,483 +1,483 @@
 <!DOCTYPE html>
-<html idioma="es">
-<cabeza>
-    <!-- Metaetiquetas esenciales para el diseño responsivo y la codificación -->
-    <meta conjunto de caracteres="UTF-8">
-    <meta nombre="ventana gráfica"contenido="ancho=ancho-del-dispositivo, escala-inicial=1.0">
-    <título>Rugby Cabrera | Inicio</título>
+<html lang="es">
+<head>
+    <!-- Meta tags esenciales para el diseño responsivo y la codificación -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugby Cabrera | Inicio</title>
     <!-- Carga de Tailwind CSS CDN para el estilismo moderno y utilitario -->
-    <guion src="https://cdn.tailwindcss.com"></guion>
-    <estilo>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
         /* Configuración de la fuente Inter como base */
-        @importar URL('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         
-        :raíz{
-            --color primario: #1e3a8a;
-            --acento de color: #dc2626;
+        :root {
+            --color-primary: #1e3a8a;
+            --color-accent: #dc2626;
         }
         
-        cuerpo{
-            familia de fuentes: 'Enterrar',sans-serif;
-            color de fondo: #f9fafb;
-            comportamiento de desplazamiento:liso;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            scroll-behavior: smooth;
         }
 
-        .club-bg-oscuro{
-            color de fondo: #0f172a;
+        .club-bg-dark {
+            background-color: #0f172a;
         }
         
-        .acento de texto de club{
+        .club-text-accent {
             color: #dc2626;
         }
         
-        .acento de borde de club{
-            color del borde: #dc2626;
+        .club-border-accent {
+            border-color: #dc2626;
         }
 
-        .botón de idioma{
-            relleno: 0,5movimiento rápido del ojo 1movimiento rápido del ojo;
-            tamaño de fuente: 0,875movimiento rápido del ojo;
-            peso de fuente: 600;
-            radio de borde: 0,375movimiento rápido del ojo;
-            transición:todo0,3s;
-            cursor:puntero;
-            borde: 2píxelessólido transparente;
-            color de fondo:transparente;
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: transparent;
             color: #9ca3af;
         }
 
-        .botón de idioma.activo{
+        .lang-btn.active {
             color: #dc2626;
-            color de fondo: rgba(220, 38, 38, 0.1);
-            color del borde: #dc2626;
+            background-color: rgba(220, 38, 38, 0.1);
+            border-color: #dc2626;
         }
 
-        .botón de idioma.inactivo{
+        .lang-btn.inactive {
             color: #9ca3af;
         }
 
-        .botón de idioma.inactivo:flotar{
+        .lang-btn.inactive:hover {
             color: #d1d5db;
         }
-    </estilo>
-</cabeza>
-<cuerpo clase="suavizado de bordes">
+    </style>
+</head>
+<body class="antialiased">
 
-    <!-- CABECERA y NAVEGACIÓN (Top Fijo) -->
-    <encabezamiento identificación="encabezado principal"clase="club-bg-dark texto-blanco sombra-lg adhesivo superior-0 z-50">
-        <navegación clase="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- CABECERA y NAVEGACIÓN (Fixed Top) -->
+    <header id="main-header" class="club-bg-dark text-white shadow-lg sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Logo/Nombre del Club -->
-            <div clase="texto-2xl fuente-negrita acento de texto de club">
+            <div class="text-2xl font-bold club-text-accent">
                 RUGBY CABRERA
             </div>
             
             <!-- Menú de Navegación (Escritorio) -->
-            <div clase="oculto md:flex espacio-x-8 texto-lg fuente-media">
-                <a href="#inicio"clase="hover:club-text-accent transición duración-300"datos-i18n="inicio de navegación">Inicio</a>
-                <a href="#equipos"clase="hover:club-text-accent transición duración-300"datos-i18n="equipos de navegación">Equipos</a>
-                <a href="#partidos"clase="hover:club-text-accent transición duración-300"datos-i18n="coincidencias de navegación">Partidos</a>
-                <a href="#noticias"clase="hover:club-text-accent transición duración-300"datos-i18n="noticias de navegación">Noticias</a>
-                <a href="#contacto"clase="hover:club-text-accent transición duración-300"datos-i18n="contacto de navegación">Contacto</a>
+            <div class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="#inicio" class="hover:club-text-accent transition duration-300" data-i18n="nav-home">Inicio</a>
+                <a href="#equipos" class="hover:club-text-accent transition duration-300" data-i18n="nav-teams">Equipos</a>
+                <a href="#partidos" class="hover:club-text-accent transition duration-300" data-i18n="nav-matches">Partidos</a>
+                <a href="#noticias" class="hover:club-text-accent transition duration-300" data-i18n="nav-news">Noticias</a>
+                <a href="#contacto" class="hover:club-text-accent transition duration-300" data-i18n="nav-contact">Contacto</a>
             </div>
 
             <!-- Selector de Idioma - Botones lado a lado -->
-            <div clase="Elementos flexibles-centro espacio-x-3">
-                <botón identificación="lang-es"clase="botón de idioma activo"idioma de datos="es">Español</botón>
-                <durar clase="texto-gris-500 texto-sm">|</durar>
-                <botón identificación="lang-ca"clase="botón de idioma inactivo"idioma de datos="California">Catalán</botón>
+            <div class="flex items-center space-x-3">
+                <button id="lang-es" class="lang-btn active" data-lang="es">Español</button>
+                <span class="text-gray-500 text-sm">|</span>
+                <button id="lang-ca" class="lang-btn inactive" data-lang="ca">Català</button>
 
                 <!-- Botón de Menú Móvil (Hamburguesa) -->
-                <botón clase="md:hidden ml-4 p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none"al hacer clic="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                    <SVG clase="ancho-6 alto-6"llenar="ninguno"ataque="color actual"cuadro de vista="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><camino tapa de línea de trazo="redondo"trazo-línea="redondo"ancho de trazo="2"d="M4 6h16M4 12h16m-7 6h7"></camino></SVG>
-                </botón>
+                <button class="md:hidden ml-4 p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-        </navegación>
+        </nav>
 
         <!-- Menú Móvil Desplegable -->
-        <div identificación="menú móvil"clase="oculto md:hidden club-bg-dark borde-t borde-pizarra-700">
-            <div clase="px-4 pt-2 pb-3 espacio-y-1 sm:px-3 flex flex-col">
-                <a href="#inicio"clase="bloque redondeado-md px-3 py-2 base de texto fuente-media hover:bg-slate-700"datos-i18n="inicio de navegación">Inicio</a>
-                <a href="#equipos"clase="bloque redondeado-md px-3 py-2 base de texto fuente-media hover:bg-slate-700"datos-i18n="equipos de navegación">Equipos</a>
-                <a href="#partidos"clase="bloque redondeado-md px-3 py-2 base de texto fuente-media hover:bg-slate-700"datos-i18n="coincidencias de navegación">Partidos</a>
-                <a href="#noticias"clase="bloque redondeado-md px-3 py-2 base de texto fuente-media hover:bg-slate-700"datos-i18n="noticias de navegación">Noticias</a>
-                <a href="#contacto"clase="bloque redondeado-md px-3 py-2 base de texto fuente-media hover:bg-slate-700"datos-i18n="contacto de navegación">Contacto</a>
+        <div id="mobile-menu" class="hidden md:hidden club-bg-dark border-t border-slate-700">
+            <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#inicio" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-home">Inicio</a>
+                <a href="#equipos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-teams">Equipos</a>
+                <a href="#partidos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-matches">Partidos</a>
+                <a href="#noticias" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-news">Noticias</a>
+                <a href="#contacto" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-contact">Contacto</a>
             </div>
         </div>
-    </encabezamiento>
+    </header>
 
-    <principal>
+    <main>
         <!-- SECCIÓN HERO/INICIO -->
-        <sección identificación="inicio"clase="relativo bg-gray-900 texto-blanco h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
-            <div clase="inset-0 absoluto bg-cover bg-center opacidad-40"
-                 estilo="background-image: url('https://placehold.co/1920x800/1e3a8a/ffffff?text=RUGBY%20CABRERA')">
+        <section id="inicio" class="relative bg-gray-900 text-white h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-40" 
+                 style="background-image: url('https://placehold.co/1920x800/1e3a8a/ffffff?text=RUGBY%20CABRERA')">
             </div>
             
-            <div clase="relativo z-10 centro de texto px-6">
-                <h1 clase="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 club-text-accent"datos-i18n="título del héroe">
+            <div class="relative z-10 text-center px-6">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 club-text-accent" data-i18n="hero-title">
                     MÁS QUE UN JUEGO. ES RUGBY CABRERA.
                 </h1>
-                <pag clase="texto-xl sm:texto-2xl texto-gris-200 mb-8 max-w-2xl mx-auto"datos-i18n="subtítulo del héroe">
+                <p class="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto" data-i18n="hero-subtitle">
                     Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.
-                </pag>
-                <div clase="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#partidos"clase="px-8 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105"datos-i18n="btn-next-matches">
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#partidos" class="px-8 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105" data-i18n="btn-next-matches">
                         Próximos Partidos
                     </a>
-                    <a href="#contacto"clase="px-8 py-3 bg-white text-gray-900 font-semibold text-lg rounded-xl shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105"datos-i18n="btn-unirse-al-equipo">
+                    <a href="#contacto" class="px-8 py-3 bg-white text-gray-900 font-semibold text-lg rounded-xl shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105" data-i18n="btn-join-team">
                         Únete al Equipo
                     </a>
                 </div>
             </div>
-        </sección>
+        </section>
 
         <!-- SECCIÓN EQUIPOS (Contiene los equipos de cantera) -->
-        <sección identificación="equipos"clase="py-16 md:py-24 club-bg-dark texto-blanco"> 
-            <div clase="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div clase="centro de texto">
-                    <h2 clase="text-3xl sm:text-4xl font-bold mb-4 club-text-accent"datos-i18n="equipos-título">Nuestros Equipos de Cantera</h2>
-                    <pag clase="texto-xl texto-gris-300 mb-12 max-w-5xl mx-auto">
+        <section id="equipos" class="py-16 md:py-24 club-bg-dark text-white"> 
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 club-text-accent" data-i18n="teams-title">Nuestros Equipos de Cantera</h2>
+                    <p class="text-xl text-gray-300 mb-12 max-w-5xl mx-auto">
                         Fomentamos el amor por el rugby desde las edades más tempranas. Cada categoría se enfoca en el desarrollo de habilidades motoras, trabajo en equipo y, sobre todo, la diversión.
-                    </pag>
+                    </p>
                     
-                    <div clase="cuadrícula cuadrícula-cols-2 lg:grid-cols-4 espacio-6 md:espacio-10">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
                         
                         <!-- Equipo 1: Sub 6 -->
-                        <div clase="bg-slate-800 p-6 redondeado-2xl sombra-xl pasar el ratón: sombra-2xl duración de transición-500 transformar pasar el ratón: escala-105">
-                            <pag clase="texto-5xl fuente-extranegrita club-texto-acento mb-2">Sub 6</pag>
-                            <h3 clase="texto-lg fuente-seminegrita texto-blanco mb-2">Pre-iniciación (Tricolor)</h3>
-                            <pag clase="texto-gris-400 texto-sm">
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 6</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Pre-iniciación (Tricolor)</h3>
+                            <p class="text-gray-400 text-sm">
                                 Introducción al juego con foco en el movimiento y la diversión. Sin contacto.
-                            </pag>
+                            </p>
                         </div>
 
                         <!-- Equipo 2: Sub 8 -->
-                        <div clase="bg-slate-800 p-6 redondeado-2xl sombra-xl pasar el ratón: sombra-2xl duración de transición-500 transformar pasar el ratón: escala-105">
-                            <pag clase="texto-5xl fuente-extranegrita club-texto-acento mb-2">Sub 8</pag>
-                            <h3 clase="texto-lg fuente-seminegrita texto-blanco mb-2">Iniciación al Contacto</h3>
-                            <pag clase="texto-gris-400 texto-sm">
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 8</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Iniciación al Contacto</h3>
+                            <p class="text-gray-400 text-sm">
                                 Se introducen gradualmente las reglas básicas y el contacto controlado.
-                            </pag>
+                            </p>
                         </div>
                         
                         <!-- Equipo 3: Sub 10 -->
-                        <div clase="bg-slate-800 p-6 redondeado-2xl sombra-xl pasar el ratón: sombra-2xl duración de transición-500 transformar pasar el ratón: escala-105">
-                            <pag clase="texto-5xl fuente-extranegrita club-texto-acento mb-2">Menos de 10</pag>
-                            <h3 clase="texto-lg fuente-seminegrita texto-blanco mb-2">Desarrollo de Habilidades</h3>
-                            <pag clase="texto-gris-400 texto-sm">
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 10</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Desarrollo de Habilidades</h3>
+                            <p class="text-gray-400 text-sm">
                                 Énfasis en el pase, el placaje y las formaciones de juego sencillas.
-                            </pag>
+                            </p>
                         </div>
 
                         <!-- Equipo 4: Sub 12 -->
-                        <div clase="bg-slate-800 p-6 redondeado-2xl sombra-xl pasar el ratón: sombra-2xl duración de transición-500 transformar pasar el ratón: escala-105">
-                            <pag clase="texto-5xl fuente-extranegrita club-texto-acento mb-2">Sub 12</pag>
-                            <h3 clase="texto-lg fuente-seminegrita texto-blanco mb-2">Juego Completo</h3>
-                            <pag clase="texto-gris-400 texto-sm">
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 12</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Juego Completo</h3>
+                            <p class="text-gray-400 text-sm">
                                 Aplicación de tácticas de juego más complejas y participación en ligas.
-                            </pag>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </sección>
+        </section>
 
         <!-- SECCIÓN PRÓXIMO PARTIDO -->
-        <sección identificación="partidos"clase="py-16 md:py-24 bg-white">
-            <div clase="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 clase="texto-3xl sm:texto-4xl fuente-negrita centro de texto mb-12 texto-gris-900"datos-i18n="título del partido">Próximo Partido</h2>
+        <section id="partidos" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900" data-i18n="match-title">Próximo Partido</h2>
 
                 <!-- Tarjeta Minimalista del Partido -->
-                <div clase="max-w-4xl mx-auto bg-white borde borde-gris-200 redondeado-3xl desbordamiento-oculto sombra-2xl transición duración-500 pasar el ratón: sombra-3xl">
-                    <div clase="p-8 md:p-12 club-bg-dark texto-blanco">
-                        <div clase="flex flex-col md:flex-row items-center justify-between">
+                <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-2xl transition duration-500 hover:shadow-3xl">
+                    <div class="p-8 md:p-12 club-bg-dark text-white">
+                        <div class="flex flex-col md:flex-row items-center justify-between">
                             <!-- Equipo Local -->
-                            <div clase="centro de texto mb-6 md:mb-0">
-                                <pag clase="texto-xl fuente-media texto-gris-300"datos-i18n="casa del partido">Local</pag>
-                                <pag clase="text-4xl sm:text-6xl font-extrabold club-text-accent">RUGBY CABRERA</pag>
-                                <pag clase="texto-sm texto-gris-400 mt-1"datos-i18n="match-our-home">Nuestra Sede</pag>
+                            <div class="text-center mb-6 md:mb-0">
+                                <p class="text-xl font-medium text-gray-300" data-i18n="match-home">Local</p>
+                                <p class="text-4xl sm:text-6xl font-extrabold club-text-accent">RUGBY CABRERA</p>
+                                <p class="text-sm text-gray-400 mt-1" data-i18n="match-our-home">Nuestra Sede</p>
                             </div>
 
                             <!-- VS Central -->
-                            <div clase="mx-8">
-                                <durar clase="texto-3xl fuente-negra texto-gris-100 p-3 club-borde-accent borde-4 redondeado-completo">VS</durar>
+                            <div class="mx-8">
+                                <span class="text-3xl font-black text-gray-100 p-3 club-border-accent border-4 rounded-full">VS</span>
                             </div>
 
                             <!-- Equipo Visitante -->
-                            <div clase="centro de texto">
-                                <pag clase="texto-xl fuente-media texto-gris-300"datos-i18n="partido fuera">Visitante</pag>
-                                <pag clase="texto-4xl sm:texto-6xl fuente-extranegrita texto-blanco">UES</pag>
-                                <pag clase="texto-sm texto-gris-400 mt-1"datos-i18n="rival del partido">Rival de Liga</pag>
+                            <div class="text-center">
+                                <p class="text-xl font-medium text-gray-300" data-i18n="match-away">Visitante</p>
+                                <p class="text-4xl sm:text-6xl font-extrabold text-white">UES</p>
+                                <p class="text-sm text-gray-400 mt-1" data-i18n="match-rival">Rival de Liga</p>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Detalles del Partido -->
-                    <div clase="p-8 md:p-12 cuadrícula cuadrícula-cols-1 sm:cuadrícula-cols-3 espacio-6 bg-gray-50 borde-t borde-gray-100">
-                        <div clase="centro de texto">
-                            <pag clase="texto-sm fuente-seminegrita texto-gris-500"datos-i18n="fecha del partido">FECHA</pag>
-                            <pag clase="texto-xl fuente-negrita texto-gris-900 mt-1">Sábado, 15 de Noviembre</pag>
+                    <div class="p-8 md:p-12 grid grid-cols-1 sm:grid-cols-3 gap-6 bg-gray-50 border-t border-gray-100">
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-date">FECHA</p>
+                            <p class="text-xl font-bold text-gray-900 mt-1">Sábado, 15 de Noviembre</p>
                         </div>
-                        <div clase="centro de texto">
-                            <pag clase="texto-sm fuente-seminegrita texto-gris-500"datos-i18n="hora del partido">HORA</pag>
-                            <pag clase="texto-xl fuente-negrita texto-gris-900 mt-1">17:00 horas</pag>
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-time">HORA</p>
+                            <p class="text-xl font-bold text-gray-900 mt-1">17:00 HRS</p>
                         </div>
-                        <div clase="centro de texto">
-                            <pag clase="texto-sm fuente-seminegrita texto-gris-500"datos-i18n="lugar de encuentro">LUGAR</pag>
-                            <pag clase="texto-xl fuente-negrita texto-gris-900 mt-1">Estadio Cabrera</pag>
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-place">LUGAR</p>
+                            <p class="text-xl font-bold text-gray-900 mt-1">Cabrera Stadium</p>
                         </div>
                     </div>
                     
-                    <div clase="p-8 texto-centro fondo-gris-100 borde-t borde-gris-200">
-                        <a href="#"clase="inline-block px-10 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300"datos-i18n="btn-obtener-boletos">
+                    <div class="p-8 text-center bg-gray-100 border-t border-gray-200">
+                        <a href="#" class="inline-block px-10 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300" data-i18n="btn-get-tickets">
                             Consigue tus Entradas
                         </a>
                     </div>
                 </div>
             </div>
-        </sección>
+        </section>
         
         <!-- SECCIÓN NOTICIAS DESTACADAS (minimalista) -->
-        <sección identificación="noticias"clase="py-16 club-bg-dark texto-blanco">
-            <div clase="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 clase="text-3xl sm:text-4xl font-bold mb-12 club-text-accent"datos-i18n="título de la noticia">Últimas Noticias</h2>
+        <section id="noticias" class="py-16 club-bg-dark text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent" data-i18n="news-title">Últimas Noticias</h2>
                 
-                <div clase="cuadrícula cuadrícula-cols-1 md:grid-cols-3 espacio-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Noticia 1 -->
-                    <div clase="bg-slate-800 redondeado-xl p-6 texto-izquierda sombra-lg">
-                        <pag clase="texto-sm texto-gris-400 mb-2">25 OCT 2025 | EQUIPO SENIOR</pag>
-                        <h3 clase="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
+                    <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
+                        <p class="text-sm text-gray-400 mb-2">25 OCT 2025 | EQUIPO SENIOR</p>
+                        <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
                             Victoria Épica contra el Sant Cugat
                         </h3>
-                        <pag clase="texto-gris-400 línea-abrazadera-3">
+                        <p class="text-gray-400 line-clamp-3">
                             Nuestro equipo senior demostró su valía en un partido reñido, asegurando una victoria clave que nos posiciona en la cima de la liga. La defensa fue fundamental...
-                        </pag>
-                        <a href="#"clase="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition"datos-i18n="btn-leer-más">Leer más →</a>
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
                     </div>
                     
                     <!-- Noticia 2 -->
-                    <div clase="bg-slate-800 redondeado-xl p-6 texto-izquierda sombra-lg">
-                        <pag clase="texto-sm texto-gris-400 mb-2">18 DE OCTUBRE DE 2025 | CANTERA</pag>
-                        <h3 clase="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
+                    <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
+                        <p class="text-sm text-gray-400 mb-2">18 OCT 2025 | CANTERA</p>
+                        <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
                             Abiertas las Inscripciones para la Escuela Infantil
                         </h3>
-                        <pag clase="texto-gris-400 línea-abrazadera-3">
+                        <p class="text-gray-400 line-clamp-3">
                             Invitamos a los más jóvenes a unirse a nuestra cantera. Fomentamos los valores del rugby desde la base con entrenadores certificados y un ambiente seguro.
-                        </pag>
-                        <a href="#"clase="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition"datos-i18n="btn-leer-más">Leer más →</a>
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
                     </div>
                     
                     <!-- Noticia 3 -->
-                    <div clase="bg-slate-800 redondeado-xl p-6 texto-izquierda sombra-lg">
-                        <pag clase="texto-sm texto-gris-400 mb-2">10 OCT 2025 | EVENTOS</pag>
-                        <h3 clase="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
+                    <div class="bg-slate-800 rounded-xl p-6 text-left shadow-lg">
+                        <p class="text-sm text-gray-400 mb-2">10 OCT 2025 | EVENTOS</p>
+                        <h3 class="text-xl font-semibold mb-3 hover:club-text-accent cursor-pointer">
                             Cena Anual de Socios y Celebración
                         </h3>
-                        <pag clase="texto-gris-400 línea-abrazadera-3">
+                        <p class="text-gray-400 line-clamp-3">
                             Se ha anunciado la fecha para nuestra tradicional cena de fin de temporada. Un momento para agradecer a todos los que hacen posible este club...
-                        </pag>
-                        <a href="#"clase="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition"datos-i18n="btn-leer-más">Leer más →</a>
+                        </p>
+                        <a href="#" class="mt-4 inline-block text-red-500 font-semibold hover:text-red-400 transition" data-i18n="btn-read-more">Leer más &rarr;</a>
                     </div>
                 </div>
             </div>
-        </sección>
+        </section>
 
         <!-- SECCIÓN CONTACTO / ÚNETE -->
-        <sección identificación="contacto"clase="py-16 md:py-24 bg-white">
-            <div clase="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 clase="texto-3xl sm:texto-4xl fuente-negrita centro de texto mb-4 texto-gris-900"datos-i18n="título de contacto">¿Quieres ser parte de Rugby Cabrera?</h2>
-                <pag clase="texto-xl texto-centro texto-gris-600 mb-12"datos-i18n="subtítulo de contacto">
+        <section id="contacto" class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900" data-i18n="contact-title">¿Quieres ser parte de Rugby Cabrera?</h2>
+                <p class="text-xl text-center text-gray-600 mb-12" data-i18n="contact-subtitle">
                     Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.
-                </pag>
+                </p>
 
                 <!-- Formulario de Contacto Minimalista -->
-                <forma clase="bg-white p-8 md:p-10 borde borde-gris-100 redondeado-2xl sombra-xl">
-                    <div clase="espacio-y-6">
+                <form class="bg-white p-8 md:p-10 border border-gray-100 rounded-2xl shadow-xl">
+                    <div class="space-y-6">
                         <div>
-                            <etiqueta para="nombre"clase="bloque texto-sm fuente-media texto-gris-700 mb-1"datos-i18n="nombre del formulario">Nombre Completo</etiqueta>
-                            <aporte tipo="texto"identificación="nombre"nombre="nombre"clase="w-full px-4 py-3 borde borde-gris-300 redondeado-lg enfoque:anillo-rojo-500 enfoque:borde-rojo-500 transición duración-150"marcador de posición="Juan Pérez">
+                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-name">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Juan Pérez">
                         </div>
                         <div>
-                            <etiqueta para="correo electrónico"clase="bloque texto-sm fuente-media texto-gris-700 mb-1"datos-i18n="formulario-correo electrónico">Correo Electrónico</etiqueta>
-                            <aporte tipo="correo electrónico"identificación="correo electrónico"nombre="correo electrónico"clase="w-full px-4 py-3 borde borde-gris-300 redondeado-lg enfoque:anillo-rojo-500 enfoque:borde-rojo-500 transición duración-150"marcador de posición="correo electrónico@ejemplo.com">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="email@ejemplo.com">
                         </div>
                         <div>
-                            <etiqueta para="mensaje"clase="bloque texto-sm fuente-media texto-gris-700 mb-1"datos-i18n="mensaje de formulario">Mensaje / Consulta</etiqueta>
-                            <área de texto identificación="mensaje"nombre="mensaje"filas="4"clase="w-full px-4 py-3 borde borde-gris-300 redondeado-lg enfoque:anillo-rojo-500 enfoque:borde-rojo-500 transición duración-150"marcador de posición="Me gustaría unirme al equipo senior..."></área de texto>
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-message">Mensaje / Consulta</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Me gustaría unirme al equipo senior..."></textarea>
                         </div>
                         <div>
-                            <botón tipo="entregar"clase="w-full px-4 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-[1.01]"datos-i18n="botón-enviar">
+                            <button type="submit" class="w-full px-4 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-[1.01]" data-i18n="btn-send">
                                 Enviar Mensaje
-                            </botón>
+                            </button>
                         </div>
                     </div>
-                </forma>
+                </form>
             </div>
-        </sección>
+        </section>
 
-    </principal>
+    </main>
 
     <!-- PIE DE PÁGINA -->
-    <pie de página clase="club-bg-dark texto-blanco py-12">
-        <div clase="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <footer class="club-bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
-            <!-- Redes Sociales (marcador de posición de Íconos) -->
-            <div clase="flex justify-center space-x-6 mb-6">
+            <!-- Redes Sociales (Íconos placeholder) -->
+            <div class="flex justify-center space-x-6 mb-6">
                 <!-- Facebook -->
-                <a href="#"clase="texto-gris-400 pasar el ratón:club-text-accent transición duración-300">
-                    <SVG clase="ancho-8 alto-8"llenar="color actual"cuadro de vista="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><camino d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zm-2 2h-3v2h3v3h-3v3h-2v-3h-2v-2h2V5a2 2 0 012-2h3V2zm0 16a2 2 0 01-2 2h-3v-3h3v-2h-3v-3h-2v3h-2v2h2v3h3a2 2 0 012 2v2zm-2-7h-3V7h3v4z"></camino></SVG>
+                <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zm-2 2h-3v2h3v3h-3v3h-2v-3h-2v-2h2V5a2 2 0 012-2h3V2zm0 16a2 2 0 01-2 2h-3v-3h3v-2h-3v-3h-2v3h-2v2h2v3h3a2 2 0 012 2v2zm-2-7h-3V7h3v4z"></path></svg>
                 </a>
                 <!-- Instagram -->
-                <a href="#"clase="texto-gris-400 pasar el ratón:club-text-accent transición duración-300">
-                    <SVG clase="ancho-8 alto-8"llenar="color actual"cuadro de vista="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><camino d="M12 2c2.75 0 3.1.01 4.19.06 1.09.05 1.76.16 2.29.35.6.22 1.05.53 1.45.93.4.4.7.85.93 1.45.19.53.3 1.2.35 2.29.05 1.09.06 1.44.06 4.19s-.01 3.1-.06 4.19c-.05 1.09-.16 1.76-.35 2.29-.22.6-.53 1.05-.93 1.45-.4.4-.85.7-1.45.93-.53.19-1.2.3-2.29.35-1.09.05-1.44.06-4.19.06s-3.1-.01-4.19-.06c-1.09-.05-1.76-.16-2.29-.35-.6-.22-1.05-.53-1.45-.93-.4- .4-.7-.85-.93-1.45-.19-.53-.3-1.2-.35-2.29-.05-1.09-.06-1.44-.06-4.19s.01-3.1.06-4.19c.05-1.09.16-1.76.35-2.29.22-.6.53-1.05.93-1.45.4-.4.85-.7 1.45-.93.53-.19 1.2-.3 2.29-.35 1.09-.05 1.44-.06 4.19-.06zm0-2c-2.79 0-3.16.01-4.26.07-1.1.05-1.87.18-2.52.43-.66.26-1.23.6-1.8.6a5.4 5.4 0 00-2.61 2.61c-.77.77-1.11 1.34-1.37 1.9-.25.65-.38 1.42-.43 2.52-.06 1.1-.07 1.47-.07 4.26s.01 3.16.07 4.26c.05 1.1.18 1.87.43 2.52.26.66.6 1.23 1.17 1.8.57.57 1.14.91 1.8.6.65.25 1.42.38 2.52.43 1.1.05 1.47.07 4.26.07s3.16-.01 4.26-.07c1.1-.05 1.87-.18 2.52-.43.66-.26 1.23-.6 1.8-.6a5.4 5.4 0 002.61-2.61c.26-.65.38-1.42.43-2.52.06-1.1.07-1.47.07-4.26s-.01-3.16-.07-4.26c-.05-1.1-.18-1.87-.43-2.52 -.26-.66-.6-1.23-1.17-1.8-.57-.57-1.14-.91-1.8-.6-.65-.25-1.42-.38-2.52-.43-1.1-.05-1.47-.07-4.26-.07zm0 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></camino></SVG>
+                <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.75 0 3.1.01 4.19.06 1.09.05 1.76.16 2.29.35.6.22 1.05.53 1.45.93.4.4.7.85.93 1.45.19.53.3 1.2.35 2.29.05 1.09.06 1.44.06 4.19s-.01 3.1-.06 4.19c-.05 1.09-.16 1.76-.35 2.29-.22.6-.53 1.05-.93 1.45-.4.4-.85.7-1.45.93-.53.19-1.2.3-2.29.35-1.09.05-1.44.06-4.19.06s-3.1-.01-4.19-.06c-1.09-.05-1.76-.16-2.29-.35-.6-.22-1.05-.53-1.45-.93-.4-.4-.7-.85-.93-1.45-.19-.53-.3-1.2-.35-2.29-.05-1.09-.06-1.44-.06-4.19s.01-3.1.06-4.19c.05-1.09.16-1.76.35-2.29.22-.6.53-1.05.93-1.45.4-.4.85-.7 1.45-.93.53-.19 1.2-.3 2.29-.35 1.09-.05 1.44-.06 4.19-.06zm0-2c-2.79 0-3.16.01-4.26.07-1.1.05-1.87.18-2.52.43-.66.26-1.23.6-1.8.6a5.4 5.4 0 00-2.61 2.61c-.77.77-1.11 1.34-1.37 1.9-.25.65-.38 1.42-.43 2.52-.06 1.1-.07 1.47-.07 4.26s.01 3.16.07 4.26c.05 1.1.18 1.87.43 2.52.26.66.6 1.23 1.17 1.8.57.57 1.14.91 1.8.6.65.25 1.42.38 2.52.43 1.1.05 1.47.07 4.26.07s3.16-.01 4.26-.07c1.1-.05 1.87-.18 2.52-.43.66-.26 1.23-.6 1.8-.6a5.4 5.4 0 002.61-2.61c.26-.65.38-1.42.43-2.52.06-1.1.07-1.47.07-4.26s-.01-3.16-.07-4.26c-.05-1.1-.18-1.87-.43-2.52-.26-.66-.6-1.23-1.17-1.8-.57-.57-1.14-.91-1.8-.6-.65-.25-1.42-.38-2.52-.43-1.1-.05-1.47-.07-4.26-.07zm0 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
                 </a>
                 <!-- Twitter/X -->
-                <a href="#"clase="texto-gris-400 pasar el ratón:club-text-accent transición duración-300">
-                    <SVG clase="ancho-8 alto-8"llenar="color actual"cuadro de vista="0 0 24 24"xmlns="http://www.w3.org/2000/svg"><camino d="M22 4.01c-.75.34-1.54.57-2.36.68.86-.52 1.53-1.34 1.85-2.32-.82.48-1.73.83-2.7.99C17.75 3.09 16.7 2.6 15.6 2.6c-2.25 0-4.08 1.83-4.08 4.08 0 .32.04.63.11.93-3.4-.17-6.42-1.8-8.44-4.26-.35.6-.55 1.3-.55 2.04 0 1.42.72 2.68 1.8 3.42-.67-.02-1.3-.2-1.85-.5v.05c0 1.98 1.4 3.63 3.25 4.0l-.34.07c-.4.08-.82.11-1.24.08.52 1.6 2.03 2.77 3.8 2.8-.72.56-1.63.9-2.62.9-.17 0-.34-.01-.51-.03 1.81 1.16 3.96 1.84 6.28 1.84 7.53 0 11.63-6.24 11.63-11.63 0-.17-.01-.34-.01-.5-.78.58-1.74.98-2.77 1.15z"></camino></SVG>
+                <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 4.01c-.75.34-1.54.57-2.36.68.86-.52 1.53-1.34 1.85-2.32-.82.48-1.73.83-2.7.99C17.75 3.09 16.7 2.6 15.6 2.6c-2.25 0-4.08 1.83-4.08 4.08 0 .32.04.63.11.93-3.4-.17-6.42-1.8-8.44-4.26-.35.6-.55 1.3-.55 2.04 0 1.42.72 2.68 1.8 3.42-.67-.02-1.3-.2-1.85-.5v.05c0 1.98 1.4 3.63 3.25 4.0l-.34.07c-.4.08-.82.11-1.24.08.52 1.6 2.03 2.77 3.8 2.8-.72.56-1.63.9-2.62.9-.17 0-.34-.01-.51-.03 1.81 1.16 3.96 1.84 6.28 1.84 7.53 0 11.63-6.24 11.63-11.63 0-.17-.01-.34-.01-.5-.78.58-1.74.98-2.77 1.15z"></path></svg>
                 </a>
             </div>
             
-            <pag clase="texto-lg fuente-media club-texto-acento mb-2">Rugby Cabrera | Sede Principal</pag>
-            <pag clase="texto-gris-400 mb-6">AV. de la Zona Deportiva, 08349 Cabrera de Mar, Barcelona | Tel: +34 677 45 65 71</pag>
+            <p class="text-lg font-medium club-text-accent mb-2">Rugby Cabrera | Sede Principal</p>
+            <p class="text-gray-400 mb-6">Av. de la Zona Esportiva, 08349 Cabrera de Mar, Barcelona | Tel: +34 677 45 65 71</p>
 
-            <div clase="flex justify-center space-x-4 text-sm text-gray-500 mb-4">
-                <a href="#"clase="pasar el ratón por encima: texto blanco duración de la transición 300">Aviso Legal</a>
-                <durar clase="texto-gris-600">|</durar>
-                <a href="#"clase="pasar el ratón por encima: texto blanco duración de la transición 300">Política de Privacidad</a>
+            <div class="flex justify-center space-x-4 text-sm text-gray-500 mb-4">
+                <a href="#" class="hover:text-white transition duration-300">Aviso Legal</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" class="hover:text-white transition duration-300">Política de Privacidad</a>
             </div>
 
-            <pag clase="texto-sm texto-gris-600">&Copiar; 2025 Rugby Cabrera. Todos los derechos reservados.</pag>
+            <p class="text-sm text-gray-600">&copy; 2025 Rugby Cabrera. Todos los derechos reservados.</p>
         </div>
-    </pie de página>
+    </footer>
 
     <!-- Script de Traducciones -->
-    <guion>
-        constante traducciones = {
-            es:{
-                'navegación-inicio':'Ínicio',
-                'equipos de navegación':'Equipos',
-                'coincidencias de navegación':'Partidos',
-                'noticias de navegación':'Noticias',
-                'nav-contact':'Contacto',
-                'título de héroe':'MÁS QUE UN JUEGO. ES RUGBY CABRERA.',
-                'subtítulo del héroe':'Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.',
-                'btn-next-matches':'Próximos Partidos',
-                'btn-unirse-al-equipo':'Únete al Equipo',
-                'equipos-título':'Nuestros Equipos de Cantera',
-                'título del partido':'Próximo Partido',
-                'casa de emparejamiento':'Local',
-                'partido fuera':'Visitante',
-                'combina con nuestro hogar':'Nuestra Sede',
-                'rival del partido':'Rival de Liga',
-                'fecha del partido':'FECHA',
-                'Hora del partido':'HORA',
-                'lugar de encuentro':'LUGAR',
-                'btn-obtener-boletos':'Consigue tus Entradas',
-                'título de la noticia':'Últimas Noticias',
-                'btn-read-more':'Leer más →',
-                'título de contacto':'¿Quieres ser parte de Rugby Cabrera?',
-                'subtítulo de contacto':'Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.',
-                'nombre-del-formulario':'Nombre Completo',
-                'form-email':'Correo Electrónico',
-                'mensaje-formulario':'Mensaje / Consulta',
-                'btn-enviar':'Enviar Mensaje'
+    <script>
+        const translations = {
+            es: {
+                'nav-home': 'Inicio',
+                'nav-teams': 'Equipos',
+                'nav-matches': 'Partidos',
+                'nav-news': 'Noticias',
+                'nav-contact': 'Contacto',
+                'hero-title': 'MÁS QUE UN JUEGO. ES RUGBY CABRERA.',
+                'hero-subtitle': 'Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.',
+                'btn-next-matches': 'Próximos Partidos',
+                'btn-join-team': 'Únete al Equipo',
+                'teams-title': 'Nuestros Equipos de Cantera',
+                'match-title': 'Próximo Partido',
+                'match-home': 'Local',
+                'match-away': 'Visitante',
+                'match-our-home': 'Nuestra Sede',
+                'match-rival': 'Rival de Liga',
+                'match-date': 'FECHA',
+                'match-time': 'HORA',
+                'match-place': 'LUGAR',
+                'btn-get-tickets': 'Consigue tus Entradas',
+                'news-title': 'Últimas Noticias',
+                'btn-read-more': 'Leer más →',
+                'contact-title': '¿Quieres ser parte de Rugby Cabrera?',
+                'contact-subtitle': 'Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.',
+                'form-name': 'Nombre Completo',
+                'form-email': 'Correo Electrónico',
+                'form-message': 'Mensaje / Consulta',
+                'btn-send': 'Enviar Mensaje'
             },
-            California:{
-                'navegación-inicio':'Inici',
-                'equipos de navegación':'Equipa',
-                'coincidencias de navegación':'Partes',
-                'noticias de navegación':'Noticias',
-                'nav-contact':'Contacto',
-                'título de héroe':'MÉS QUE UN JOC. ÉS RUGBY CABRERA.',
-                'subtítulo del héroe':'Uneix-te a la nuestra passió. Descobreix els nostres valors i els pròxims encontres.',
-                'btn-next-matches':'Próximos Partitos',
-                'btn-unirse-al-equipo':'Unix-te al\'Equip',
-                'equipos-título':'Els Nostres Equips de Cantera',
-                'título del partido':'Próximo Partido',
-                'casa de emparejamiento':'Local',
-                'partido fuera':'Visitante',
-                'combina con nuestro hogar':'La Nostra Seu',
-                'rival del partido':'Rival de Lliga',
-                'fecha del partido':'DATOS',
-                'Hora del partido':'HORA',
-                'lugar de encuentro':'LLOC',
-                'btn-obtener-boletos':'Obté les teves Entrades',
-                'título de la noticia':'Últimes Notícies',
-                'btn-read-more':'Llegir més →',
-                'título de contacto':'¿Vols ser parte de Rugby Cabrera?',
-                'subtítulo de contacto':'Si tens passió pel rugby, contacta\'ns. Busquem jugadores, voluntaris i patrocinadores.',
-                'nombre-del-formulario':'Nombre completo',
-                'form-email':'Correu Electrònic',
-                'mensaje-formulario':'Error / Consulta',
-                'btn-enviar':'Enviar Missatge'
+            ca: {
+                'nav-home': 'Inici',
+                'nav-teams': 'Equips',
+                'nav-matches': 'Partits',
+                'nav-news': 'Notícies',
+                'nav-contact': 'Contacte',
+                'hero-title': 'MÉS QUE UN JOC. ÉS RUGBY CABRERA.',
+                'hero-subtitle': 'Uneix-te a la nostra passió. Descobreix els nostres valors i els pròxims encontres.',
+                'btn-next-matches': 'Pròxims Partits',
+                'btn-join-team': 'Uneix-te a l\'Equip',
+                'teams-title': 'Els Nostres Equips de Cantera',
+                'match-title': 'Pròxim Partit',
+                'match-home': 'Local',
+                'match-away': 'Visitant',
+                'match-our-home': 'La Nostra Seu',
+                'match-rival': 'Rival de Lliga',
+                'match-date': 'DATA',
+                'match-time': 'HORA',
+                'match-place': 'LLOC',
+                'btn-get-tickets': 'Obté les teves Entrades',
+                'news-title': 'Últimes Notícies',
+                'btn-read-more': 'Llegir més →',
+                'contact-title': 'Vols ser part de Rugby Cabrera?',
+                'contact-subtitle': 'Si tens passió pel rugby, contacta\'ns. Busquem jugadors, voluntaris i patrocinadors.',
+                'form-name': 'Nom Complet',
+                'form-email': 'Correu Electrònic',
+                'form-message': 'Missatge / Consulta',
+                'btn-send': 'Enviar Missatge'
             }
         };
 
-        función cambiar idioma(idioma) {
-            documento.consultaSelectorTodo('[data-i18n]').para cada(elemento => {
-                constante llave = elemento.obtenerAtributo('datos-i18n');
-                si (traducciones[idioma] && traducciones[idioma][llave]) {
-                    elemento.textoContenido = traducciones[idioma][llave];
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
                 }
             });
 
-            documento.consultaSelectorTodo('.lang-btn').para cada(botón => {
-                botón.lista de clases.eliminar('activo', 'inactivo');
-                si (botón.obtenerAtributo('lenguaje de datos') === idioma) {
-                    botón.lista de clases.agregar('activo');
-                } demás {
-                    botón.lista de clases.agregar('inactivo');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active', 'inactive');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.add('inactive');
                 }
             });
 
-            almacenamiento local.conjunto de elementos('idioma preferido', idioma);
+            localStorage.setItem('preferredLanguage', lang);
         }
 
-        documento.consultaSelectorTodo('.lang-btn').para cada(botón => {
-            botón.agregarOyenteDeEventos('hacer clic', (mi) => {
-                mi.prevenirPor defecto();
-                cambiar idioma(botón.obtenerAtributo('lenguaje de datos'));
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeLanguage(btn.getAttribute('data-lang'));
             });
         });
 
-        documento.agregarOyenteDeEventos('DOMContentLoaded', () => {
-            constante idioma guardado = almacenamiento local.obtenerArtículo('idioma preferido') || 'es';
-            cambiar idioma(idioma guardado);
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'es';
+            changeLanguage(savedLanguage);
         });
-    </guion>
+    </script>
 
     <!-- Script para la funcionalidad del menú móvil y el desplazamiento con offset -->
-    <guion>
-        documento.agregarOyenteDeEventos('DOMContentLoaded', () => {
-            constante Menú móvil = documento.obtenerElementoPorId('menú móvil');
-            constante encabezamiento = documento.obtenerElementoPorId('encabezado principal');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('main-header');
 
-            documento.consultaSelectorTodo('a[href^="#"]').para cada(ancla => {
-                ancla.agregarOyenteDeEventos('hacer clic', función (mi) {
-                    constante href = este.obtenerAtributo('href');
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
                     
-                    si (href.longitud > 1) { 
-                        mi.prevenirPor defecto();
+                    if (href.length > 1) { 
+                        e.preventDefault();
                         
-                        constante ID de destino = href.subcadena(1);
-                        constante elemento objetivo = documento.obtenerElementoPorId(ID de destino);
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
                         
-                        si (elemento objetivo && encabezamiento) {
-                            constante encabezadoAltura = encabezamiento.Altura de desplazamiento;
-                            constante offsetTop = elemento objetivo.offsetTop - encabezadoAltura - 16; 
+                        if (targetElement && header) {
+                            const headerHeight = header.offsetHeight;
+                            const offsetTop = targetElement.offsetTop - headerHeight - 16; 
                             
-                            ventana.desplazarse({
-                                arriba:offsetTop,
-                                comportamiento:'liso'
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
                             });
                         }
 
-                        si (Menú móvil && ¡Menú móvil.lista de clases.contiene('oculto')) {
-                            Menú móvil.lista de clases.agregar('oculto');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
                         }
                     }
                 });
             });
         });
-    </guion>
-</cuerpo>
+    </script>
+</body>
 </html>
