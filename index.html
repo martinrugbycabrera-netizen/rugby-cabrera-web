@@ -129,47 +129,54 @@
 <script>
 const translations = {
   es: {
-    "nav-home":"Inicio","nav-teams":"Equipos","nav-matches":"Partidos",
-    "nav-news":"Noticias","nav-contact":"Contacto",
-    "hero-title":"MÁS QUE UN JUEGO. ES RUGBY CABRERA.",
-    "hero-subtitle":"Únete a nuestra pasión. Descubre nuestros valores.",
-    "teams-title":"Nuestros Equipos de Cantera",
-    "match-title":"Próximo Partido",
-    "news-title":"Últimas Noticias",
-    "contact-title":"¿Quieres ser parte de Rugby Cabrera?"
+    "nav-home": "Inicio",
+    "nav-teams": "Equipos",
+    "nav-matches": "Partidos",
+    "nav-news": "Noticias",
+    "nav-contact": "Contacto",
+    "hero-title": "MÁS QUE UN JUEGO. ES RUGBY CABRERA.",
+    "hero-subtitle": "Únete a nuestra pasión. Descubre nuestros valores.",
+    "teams-title": "Nuestros Equipos de Cantera",
+    "match-title": "Próximo Partido",
+    "news-title": "Últimas Noticias",
+    "contact-title": "¿Quieres ser parte de Rugby Cabrera?"
   },
   ca: {
-    "nav-home":"Inici","nav-teams":"Equips","nav-matches":"Partits",
-    "nav-news":"Notícies","nav-contact":"Contacte",
-    "hero-title":"MÉS QUE UN JOC. ÉS RUGBY CABRERA.",
-    "hero-subtitle":"Uneix-te a la nostra passió. Descobreix els nostres valors.",
-    "teams-title":"Els Nostres Equips de Cantera",
-    "match-title":"Pròxim Partit",
-    "news-title":"Últimes Notícies",
-    "contact-title":"Vols formar part de Rugby Cabrera?"
+    "nav-home": "Inici",
+    "nav-teams": "Equips",
+    "nav-matches": "Partits",
+    "nav-news": "Notícies",
+    "nav-contact": "Contacte",
+    "hero-title": "MÉS QUE UN JOC. ÉS RUGBY CABRERA.",
+    "hero-subtitle": "Uneix-te a la nostra passió. Descobreix els nostres valors.",
+    "teams-title": "Els Nostres Equips de Cantera",
+    "match-title": "Pròxim Partit",
+    "news-title": "Últimes Notícies",
+    "contact-title": "Vols formar part de Rugby Cabrera?"
   }
 };
 
 function changeLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang][key]) el.textContent = translations[lang][key];
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
   });
-  document.querySelectorAll(".lang-btn").forEach(b => {
-    b.classList.toggle("active", b.dataset.lang === lang);
-    b.classList.toggle("inactive", b.dataset.lang !== lang);
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+    btn.classList.toggle("inactive", btn.dataset.lang !== lang);
   });
+
   localStorage.setItem("preferredLanguage", lang);
 }
-
-document.querySelectorAll(".lang-btn").forEach(b =>
-  b.addEventListener("click", () => {
-    changeLanguage(b.dataset.lang);
-    cargarNoticias();
-  })
-);
-
-changeLanguage(localStorage.getItem("preferredLanguage") || "es");
+</script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("preferredLanguage") || "es";
+  changeLanguage(savedLang);
+});
 </script>
 
 <!-- NOTICIAS DESDE GOOGLE SHEETS -->
