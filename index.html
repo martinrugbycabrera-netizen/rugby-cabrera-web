@@ -248,18 +248,30 @@
             </div>
         </section>
         
-        <!-- SECCIÓN NOTICIAS DESTACADAS (minimalista) -->
-        
+        <!-- SECCIÓN NOTICIAS -->
 <section id="noticias" class="py-16 club-bg-dark text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent" data-i18n="news-title">Últimas Noticias</h2>
-    <div id="news-wrapper" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <h2
+      class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent"
+      data-i18n="news-title"
+    >
+      Últimas Noticias
+    </h2>
+
+    <!-- GRID DE 3 COLUMNAS -->
+    <div
+      id="news-wrapper"
+      class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left"
+    >
       <div id="news-cat-1" class="space-y-6"></div>
       <div id="news-cat-2" class="space-y-6"></div>
       <div id="news-cat-3" class="space-y-6"></div>
     </div>
+
   </div>
 </section>
+``
 
 
         <!-- SECCIÓN CONTACTO / ÚNETE -->
@@ -424,42 +436,94 @@
             const savedLanguage = localStorage.getItem('preferredLanguage') || 'es';
             changeLanguage(savedLanguage);
         });
-    </script>
-
-    <!-- Script para la funcionalidad del menú móvil y el desplazamiento con offset -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const header = document.getElementById('main-header');
+const SHEET_URL =
+  "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
 
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    
-                    if (href.length > 1) { 
-                        e.preventDefault();
-                        
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        
-                        if (targetElement && header) {
-                            const headerHeight = header.offsetHeight;
-                            const offsetTop = targetElement.offsetTop - headerHeight - 16; 
-                            
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
-                        }
+async function cargarNoticias() {
+  try {
+    const res = await fetch(SHEET_URL);
+    const raw = await res.text();
+    const json = JSON.parse(raw.substring(47, raw.length - 2));
 
-                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                            mobileMenu.classList.add('hidden');
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+    const filas = json.table.rows.map(r =>
+      r.c.map(c => (c ? c.v : ""))
+    );
+
+    const lang = localStorage.getItem("preferredLanguage") || "es";
+
+    /*
+      ESTRUCTURA DEL SHEET:
+      0 = ID
+      1 = Fecha
+      2 = Seccion_ES
+      3 = Titulo_ES
+      4 = Texto_ES
+      5 = Seccion_CA
+      6 = Titulo_CA
+      7 = Texto_CA
+    */
+
+    const noticias = filas.map(f => ({
+      id: Number(f[0]),
+      fecha: f[1],
+      seccion: lang === "ca" ? f[5] : f[2],
+      titulo:  lang === "ca" ? f[6] : f[3],
+      texto:   lang === "ca" ? f[7] : f[4]
+    }));
+
+    renderNoticias(noticias);
+
+  } catch (error) {
+    console.error("Error cargando noticias:", error);
+  }
+}
+
+function renderNoticias(lista) {
+  const col1 = document.getElementById("news-cat-1");
+  const col2 = document.getElementById("news-cat-2");
+  const col3 = document.getElementById("news-cat-3");
+
+  col1.innerHTML = "";
+  col2.innerHTML = "";
+  col3.innerHTML = "";
+
+  // Ordenar por fecha (más reciente primero)
+  lista.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+  lista.forEach(n => {
+    const card = `
+      <div class="bg-slate-800 p-6 rounded-2xl shadow-xl w-full">
+        <p class="text-xs text-gray-400 mb-2">${n.fecha}</p>
+        <h3 class="text-xl font-bold club-text-accent mb-2">
+          ${n.titulo}
+        </h3>
+        <p class="text-gray-300 mb-4">
+          ${n.texto}
+        </p>
+        <p class="text-sm text-gray-500 italic">
+          ${n.seccion}
+        </p>
+      </div>
+    `;
+
+    if (n.id === 1) col1.innerHTML += card;
+    if (n.id === 2) col2.innerHTML += card;
+    if (n.id === 3) col3.innerHTML += card;
+  });
+}
+
+// Cargar al iniciar
+cargarNoticias();
+
+// Volver a cargar al cambiar idioma
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTimeout(cargarNoticias, 50);
+  });
+});
+</script>
+``
 
 <script>
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
