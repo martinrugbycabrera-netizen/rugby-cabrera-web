@@ -527,8 +527,15 @@ document.querySelectorAll(".lang-btn").forEach(btn => {
 
 <script>
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
-async function cargarNoticias(){try{const res=await fetch(SHEET_URL);const raw=await res.text();const json=JSON.parse(raw.substring(47,raw.length-2));const filas=json.table.rows.map(r=>r.c.map(c=>c?c.v:""));const noticias=filas.map(f=>({id:Number(f[0]),fecha:f[1],seccion:f[2],titulo:f[3],texto:f[4]}));renderNoticias(noticias);}catch(e){console.error(e);}}
-function renderNoticias(lista){const c1=document.getElementById('news-cat-1');const c2=document.getElementById('news-cat-2');const c3=document.getElementById('news-cat-3');c1.innerHTML=c2.innerHTML=c3.innerHTML="";lista.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));lista.forEach(n=>{const card=`<div class='bg-slate-800 p-6 rounded-2xl shadow-xl'><p class='text-xs text-gray-400 mb-2'>${n.fecha}</p><h3 class='text-xl font-bold club-text-accent mb-2'>${n.titulo}</h3><p class='text-gray-300 mb-4'>${n.texto}</p><p class='text-sm text-gray-500 italic'>${n.seccion}</p></div>`;if(n.id===1)c1.innerHTML+=card;else if(n.id===2)c2.innerHTML+=card;else if(n.id===3)c3.innerHTML+=card;});}
+
+async function cargarNoticias() {
+  ...
+}
+
+function renderNoticias(lista) {
+  ...
+}
+
 cargarNoticias();
 </script>
 
