@@ -1,223 +1,472 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rugby Cabrera | Inicio</title>
+    <!-- Meta tags esenciales para el diseño responsivo y la codificación -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rugby Cabrera | Inicio</title>
+    <!-- Carga de Tailwind CSS CDN para el estilismo moderno y utilitario -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuración de la fuente Inter como base */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --color-primary: #1e3a8a;
+            --color-accent: #dc2626;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            scroll-behavior: smooth;
+        }
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+        .club-bg-dark {
+            background-color: #0f172a;
+        }
+        
+        .club-text-accent {
+            color: #dc2626;
+        }
+        
+        .club-border-accent {
+            border-color: #dc2626;
+        }
 
-  <!-- Fuente -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-    }
-    .club-bg-dark { background-color: #0f172a; }
-    .club-text-accent { color: #dc2626; }
-    .lang-btn {
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border-radius: 0.375rem;
-      cursor: pointer;
-    }
-    .lang-btn.active {
-      background-color: rgba(220,38,38,0.15);
-      color: #dc2626;
-    }
-    .lang-btn.inactive {
-      color: #9ca3af;
-    }
-  </style>
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.375rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: transparent;
+            color: #9ca3af;
+        }
+
+        .lang-btn.active {
+            color: #dc2626;
+            background-color: rgba(220, 38, 38, 0.1);
+            border-color: #dc2626;
+        }
+
+        .lang-btn.inactive {
+            color: #9ca3af;
+        }
+
+        .lang-btn.inactive:hover {
+            color: #d1d5db;
+        }
+    </style>
 </head>
-
 <body class="antialiased">
 
-<!-- HEADER -->
-<header id="main-header" class="club-bg-dark text-white sticky top-0 z-50 shadow-lg">
-  <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- CABECERA y NAVEGACIÓN (Fixed Top) -->
+    <header id="main-header" class="club-bg-dark text-white shadow-lg sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          
 
-    <!-- LOGO -->
-    <div class="flex items-center gap-3">
-      <div class="bg-white rounded-full p-1">
-        <img src="assets/logo-cabrera.png"
-             alt="Rugby Cabrera"
-             class="h-8 w-8 sm:h-10 sm:w-10 object-contain" />
-      </div>
-      <span class="text-2xl font-bold club-text-accent">RUGBY CABRERA</span>
+
+<!-- Logo + Nombre del Club -->
+<div class="flex items-center gap-3">
+    <div class="bg-white rounded-full p-1">
+        <img src="assets/logo-cabrera.png" alt="Logo Rugby Cabrera" class="h-8 w-8 sm:h-10 sm:w-10 object-contain">
     </div>
+    <span class="text-2xl font-bold club-text-accent">
+        RUGBY CABRERA
+    </span>
+</div>
 
-    <!-- NAV -->
-    <div class="hidden md:flex gap-8 text-lg">
-      <a href="#inicio" data-i18n="nav-home">Inicio</a>
-      <a href="#equipos" data-i18n="nav-teams">Equipos</a>
-      <a href="#partidos" data-i18n="nav-matches">Partidos</a>
-      <a href="#noticias" data-i18n="nav-news">Noticias</a>
-      <a href="#contacto" data-i18n="nav-contact">Contacto</a>
-    </div>
 
-    <!-- IDIOMAS -->
-    <div class="flex gap-2">
-      <button class="lang-btn active" data-lang="es">ES</button>
-      <button class="lang-btn inactive" data-lang="ca">CAT</button>
-    </div>
-  </nav>
-</header>
+``
 
-<main>
+            
+            <!-- Menú de Navegación (Escritorio) -->
+            <div class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="#inicio" class="hover:club-text-accent transition duration-300" data-i18n="nav-home">Inicio</a>
+                <a href="#equipos" class="hover:club-text-accent transition duration-300" data-i18n="nav-teams">Equipos</a>
+                <a href="#partidos" class="hover:club-text-accent transition duration-300" data-i18n="nav-matches">Partidos</a>
+                <a href="#noticias" class="hover:club-text-accent transition duration-300" data-i18n="nav-news">Noticias</a>
+                <a href="#contacto" class="hover:club-text-accent transition duration-300" data-i18n="nav-contact">Contacto</a>
+            </div>
 
-<!-- HERO -->
-<section id="inicio" class="h-[70vh] flex items-center justify-center text-center text-white bg-cover bg-center"
-  style="background-image:url('https://placehold.co/1920x800/1e3a8a/ffffff?text=RUGBY+CABRERA')">
-  <div class="bg-black/60 p-10 rounded-xl">
-    <h1 class="text-5xl font-extrabold club-text-accent mb-4" data-i18n="hero-title">
-      MÁS QUE UN JUEGO. ES RUGBY CABRERA.
-    </h1>
-    <p class="text-xl" data-i18n="hero-subtitle">
-      Únete a nuestra pasión. Descubre nuestros valores.
-    </p>
-  </div>
-</section>
+            <!-- Selector de Idioma - Botones lado a lado -->
+            <div class="flex items-center space-x-3">
+                <button id="lang-es" class="lang-btn active" data-lang="es">Español</button>
+                <span class="text-gray-500 text-sm">|</span>
+                <button id="lang-ca" class="lang-btn inactive" data-lang="ca">Català</button>
 
-<!-- EQUIPOS -->
-<section id="equipos" class="py-20 club-bg-dark text-white text-center">
-  <h2 class="text-4xl font-bold club-text-accent mb-10" data-i18n="teams-title">
-    Nuestros Equipos de Cantera
-  </h2>
-</section>
+                <!-- Botón de Menú Móvil (Hamburguesa) -->
+                <button class="md:hidden ml-4 p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
 
-<!-- PARTIDOS -->
-<section id="partidos" class="py-20 bg-white text-center">
-  <h2 class="text-4xl font-bold mb-10" data-i18n="match-title">Próximo Partido</h2>
-</section>
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden club-bg-dark border-t border-slate-700">
+            <div class="px-4 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#inicio" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-home">Inicio</a>
+                <a href="#equipos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-teams">Equipos</a>
+                <a href="#partidos" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-matches">Partidos</a>
+                <a href="#noticias" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-news">Noticias</a>
+                <a href="#contacto" class="block rounded-md px-3 py-2 text-base font-medium hover:bg-slate-700" data-i18n="nav-contact">Contacto</a>
+            </div>
+        </div>
+    </header>
 
-<!-- SECCIÓN NOTICIAS -->
+    <main>
+        <!-- SECCIÓN HERO/INICIO -->
+        <section id="inicio" class="relative bg-gray-900 text-white h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-40" 
+                 style="background-image: url('https://placehold.co/1920x800/1e3a8a/ffffff?text=RUGBY%20CABRERA')">
+            </div>
+            
+            <div class="relative z-10 text-center px-6">
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 club-text-accent" data-i18n="hero-title">
+                    MÁS QUE UN JUEGO. ES RUGBY CABRERA.
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto" data-i18n="hero-subtitle">
+                    Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#partidos" class="px-8 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105" data-i18n="btn-next-matches">
+                        Próximos Partidos
+                    </a>
+                    <a href="#contacto" class="px-8 py-3 bg-white text-gray-900 font-semibold text-lg rounded-xl shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105" data-i18n="btn-join-team">
+                        Únete al Equipo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN EQUIPOS (Contiene los equipos de cantera) -->
+        <section id="equipos" class="py-16 md:py-24 club-bg-dark text-white"> 
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4 club-text-accent" data-i18n="teams-title">Nuestros Equipos de Cantera</h2>
+                    <p class="text-xl text-gray-300 mb-12 max-w-5xl mx-auto">
+                        Fomentamos el amor por el rugby desde las edades más tempranas. Cada categoría se enfoca en el desarrollo de habilidades motoras, trabajo en equipo y, sobre todo, la diversión.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+                        
+                        <!-- Equipo 1: Sub 6 -->
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 6</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Pre-iniciación (Tricolor)</h3>
+                            <p class="text-gray-400 text-sm">
+                                Introducción al juego con foco en el movimiento y la diversión. Sin contacto.
+                            </p>
+                        </div>
+
+                        <!-- Equipo 2: Sub 8 -->
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 8</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Iniciación al Contacto</h3>
+                            <p class="text-gray-400 text-sm">
+                                Se introducen gradualmente las reglas básicas y el contacto controlado.
+                            </p>
+                        </div>
+                        
+                        <!-- Equipo 3: Sub 10 -->
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 10</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Desarrollo de Habilidades</h3>
+                            <p class="text-gray-400 text-sm">
+                                Énfasis en el pase, el placaje y las formaciones de juego sencillas.
+                            </p>
+                        </div>
+
+                        <!-- Equipo 4: Sub 12 -->
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 12</p>
+                            <h3 class="text-lg font-semibold text-white mb-2">Juego Completo</h3>
+                            <p class="text-gray-400 text-sm">
+                                Aplicación de tácticas de juego más complejas y participación en ligas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PRÓXIMO PARTIDO -->
+        <section id="partidos" class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900" data-i18n="match-title">Próximo Partido</h2>
+
+                <!-- Tarjeta Minimalista del Partido -->
+                <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-2xl transition duration-500 hover:shadow-3xl">
+                    <div class="p-8 md:p-12 club-bg-dark text-white">
+                        <div class="flex flex-col md:flex-row items-center justify-between">
+                            <!-- Equipo Local -->
+                            <div class="text-center mb-6 md:mb-0">
+                                <p class="text-xl font-medium text-gray-300" data-i18n="match-home">Local</p>
+                                <p class="text-4xl sm:text-6xl font-extrabold club-text-accent">RUGBY CABRERA</p>
+                                <p class="text-sm text-gray-400 mt-1" data-i18n="match-our-home">Nuestra Sede</p>
+                            </div>
+
+                            <!-- VS Central -->
+                            <div class="mx-8">
+                                <span class="text-3xl font-black text-gray-100 p-3 club-border-accent border-4 rounded-full">VS</span>
+                            </div>
+
+                            <!-- Equipo Visitante -->
+                            <div class="text-center">
+                                <p class="text-xl font-medium text-gray-300" data-i18n="match-away">Visitante</p>
+                                <p class="text-4xl sm:text-6xl font-extrabold text-white">UES</p>
+                                <p class="text-sm text-gray-400 mt-1" data-i18n="match-rival">Rival de Liga</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Detalles del Partido -->
+                    <div class="p-8 md:p-12 grid grid-cols-1 sm:grid-cols-3 gap-6 bg-gray-50 border-t border-gray-100">
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-date">FECHA</p>
+                            <p class="text-xl font-bold text-gray-900 mt-1">Sábado, 15 de Noviembre</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-time">HORA</p>
+                            <p class="text-xl font-bold text-gray-900 mt-1">17:00 HRS</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm font-semibold text-gray-500" data-i18n="match-place">LUGAR</p>
+                            <p class="text-xl font-bold text-gray-900 mt-1">Cabrera Stadium</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 text-center bg-gray-100 border-t border-gray-200">
+                        <a href="#" class="inline-block px-10 py-3 bg-red-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-red-700 transition duration-300" data-i18n="btn-get-tickets">
+                            Consigue tus Entradas
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCIÓN NOTICIAS DESTACADAS (minimalista) -->
+        
 <section id="noticias" class="py-16 club-bg-dark text-white">
-  <div class="max-w-7xl mx-auto px-4 text-center">
-
-    <h2 class="text-4xl font-bold club-text-accent mb-12" data-i18n="news-title">
-      Últimas Noticias
-    </h2>
-
-    <div id="news-wrapper" class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent" data-i18n="news-title">Últimas Noticias</h2>
+    <div id="news-wrapper" class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <div id="news-cat-1" class="space-y-6"></div>
       <div id="news-cat-2" class="space-y-6"></div>
       <div id="news-cat-3" class="space-y-6"></div>
     </div>
-
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="py-20 bg-white text-center">
-  <h2 class="text-4xl font-bold mb-4" data-i18n="contact-title">
-    ¿Quieres ser parte de Rugby Cabrera?
-  </h2>
-</section>
 
-</main>
+        <!-- SECCIÓN CONTACTO / ÚNETE -->
+        <section id="contacto" class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 text-gray-900" data-i18n="contact-title">¿Quieres ser parte de Rugby Cabrera?</h2>
+                <p class="text-xl text-center text-gray-600 mb-12" data-i18n="contact-subtitle">
+                    Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.
+                </p>
 
-<!-- FOOTER -->
-<footer class="club-bg-dark text-white py-8 text-center">
-  <p class="text-sm">© 2025 Rugby Cabrera</p>
-</footer>
+                <!-- Formulario de Contacto Minimalista -->
+                <form class="bg-white p-8 md:p-10 border border-gray-100 rounded-2xl shadow-xl">
+                    <div class="space-y-6">
+                        <div>
+                            <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-name">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Juan Pérez">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="email@ejemplo.com">
+                        </div>
+                        <div>
+                            <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form-message">Mensaje / Consulta</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Me gustaría unirme al equipo senior..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full px-4 py-3 bg-red-600 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-[1.01]" data-i18n="btn-send">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
 
-<!-- TRADUCCIONES -->
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="club-bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Redes Sociales (Íconos placeholder) -->
+            <div class="flex justify-center space-x-6 mb-6">
+                <!-- Facebook -->
+                <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zm-2 2h-3v2h3v3h-3v3h-2v-3h-2v-2h2V5a2 2 0 012-2h3V2zm0 16a2 2 0 01-2 2h-3v-3h3v-2h-3v-3h-2v3h-2v2h2v3h3a2 2 0 012 2v2zm-2-7h-3V7h3v4z"></path></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c2.75 0 3.1.01 4.19.06 1.09.05 1.76.16 2.29.35.6.22 1.05.53 1.45.93.4.4.7.85.93 1.45.19.53.3 1.2.35 2.29.05 1.09.06 1.44.06 4.19s-.01 3.1-.06 4.19c-.05 1.09-.16 1.76-.35 2.29-.22.6-.53 1.05-.93 1.45-.4.4-.85.7-1.45.93-.53.19-1.2.3-2.29.35-1.09.05-1.44.06-4.19.06s-3.1-.01-4.19-.06c-1.09-.05-1.76-.16-2.29-.35-.6-.22-1.05-.53-1.45-.93-.4-.4-.7-.85-.93-1.45-.19-.53-.3-1.2-.35-2.29-.05-1.09-.06-1.44-.06-4.19s.01-3.1.06-4.19c.05-1.09.16-1.76.35-2.29.22-.6.53-1.05.93-1.45.4-.4.85-.7 1.45-.93.53-.19 1.2-.3 2.29-.35 1.09-.05 1.44-.06 4.19-.06zm0-2c-2.79 0-3.16.01-4.26.07-1.1.05-1.87.18-2.52.43-.66.26-1.23.6-1.8.6a5.4 5.4 0 00-2.61 2.61c-.77.77-1.11 1.34-1.37 1.9-.25.65-.38 1.42-.43 2.52-.06 1.1-.07 1.47-.07 4.26s.01 3.16.07 4.26c.05 1.1.18 1.87.43 2.52.26.66.6 1.23 1.17 1.8.57.57 1.14.91 1.8.6.65.25 1.42.38 2.52.43 1.1.05 1.47.07 4.26.07s3.16-.01 4.26-.07c1.1-.05 1.87-.18 2.52-.43.66-.26 1.23-.6 1.8-.6a5.4 5.4 0 002.61-2.61c.26-.65.38-1.42.43-2.52.06-1.1.07-1.47.07-4.26s-.01-3.16-.07-4.26c-.05-1.1-.18-1.87-.43-2.52-.26-.66-.6-1.23-1.17-1.8-.57-.57-1.14-.91-1.8-.6-.65-.25-1.42-.38-2.52-.43-1.1-.05-1.47-.07-4.26-.07zm0 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
+                </a>
+                <!-- Twitter/X -->
+                <a href="#" class="text-gray-400 hover:club-text-accent transition duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 4.01c-.75.34-1.54.57-2.36.68.86-.52 1.53-1.34 1.85-2.32-.82.48-1.73.83-2.7.99C17.75 3.09 16.7 2.6 15.6 2.6c-2.25 0-4.08 1.83-4.08 4.08 0 .32.04.63.11.93-3.4-.17-6.42-1.8-8.44-4.26-.35.6-.55 1.3-.55 2.04 0 1.42.72 2.68 1.8 3.42-.67-.02-1.3-.2-1.85-.5v.05c0 1.98 1.4 3.63 3.25 4.0l-.34.07c-.4.08-.82.11-1.24.08.52 1.6 2.03 2.77 3.8 2.8-.72.56-1.63.9-2.62.9-.17 0-.34-.01-.51-.03 1.81 1.16 3.96 1.84 6.28 1.84 7.53 0 11.63-6.24 11.63-11.63 0-.17-.01-.34-.01-.5-.78.58-1.74.98-2.77 1.15z"></path></svg>
+                </a>
+            </div>
+            
+            <p class="text-lg font-medium club-text-accent mb-2">Rugby Cabrera | Sede Principal</p>
+            <p class="text-gray-400 mb-6">Av. de la Zona Esportiva, 08349 Cabrera de Mar, Barcelona | Tel: +34 677 45 65 71</p>
+
+            <div class="flex justify-center space-x-4 text-sm text-gray-500 mb-4">
+                <a href="#" class="hover:text-white transition duration-300">Aviso Legal</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" class="hover:text-white transition duration-300">Política de Privacidad</a>
+            </div>
+
+            <p class="text-sm text-gray-600">&copy; 2025 Rugby Cabrera. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de Traducciones -->
+    <script>
+        const translations = {
+            es: {
+                'nav-home': 'Inicio',
+                'nav-teams': 'Equipos',
+                'nav-matches': 'Partidos',
+                'nav-news': 'Noticias',
+                'nav-contact': 'Contacto',
+                'hero-title': 'MÁS QUE UN JUEGO. ES RUGBY CABRERA.',
+                'hero-subtitle': 'Únete a nuestra pasión. Descubre nuestros valores y próximos encuentros.',
+                'btn-next-matches': 'Próximos Partidos',
+                'btn-join-team': 'Únete al Equipo',
+                'teams-title': 'Nuestros Equipos de Cantera',
+                'match-title': 'Próximo Partido',
+                'match-home': 'Local',
+                'match-away': 'Visitante',
+                'match-our-home': 'Nuestra Sede',
+                'match-rival': 'Rival de Liga',
+                'match-date': 'FECHA',
+                'match-time': 'HORA',
+                'match-place': 'LUGAR',
+                'btn-get-tickets': 'Consigue tus Entradas',
+                'news-title': 'Últimas Noticias',
+                'btn-read-more': 'Leer más →',
+                'contact-title': '¿Quieres ser parte de Rugby Cabrera?',
+                'contact-subtitle': 'Si tienes pasión por el rugby, contáctanos. Buscamos jugadores, voluntarios y patrocinadores.',
+                'form-name': 'Nombre Completo',
+                'form-email': 'Correo Electrónico',
+                'form-message': 'Mensaje / Consulta',
+                'btn-send': 'Enviar Mensaje'
+            },
+            ca: {
+                'nav-home': 'Inici',
+                'nav-teams': 'Equips',
+                'nav-matches': 'Partits',
+                'nav-news': 'Notícies',
+                'nav-contact': 'Contacte',
+                'hero-title': 'MÉS QUE UN JOC. ÉS RUGBY CABRERA.',
+                'hero-subtitle': 'Uneix-te a la nostra passió. Descobreix els nostres valors i els pròxims encontres.',
+                'btn-next-matches': 'Pròxims Partits',
+                'btn-join-team': 'Uneix-te a l\'Equip',
+                'teams-title': 'Els Nostres Equips de Cantera',
+                'match-title': 'Pròxim Partit',
+                'match-home': 'Local',
+                'match-away': 'Visitant',
+                'match-our-home': 'La Nostra Seu',
+                'match-rival': 'Rival de Lliga',
+                'match-date': 'DATA',
+                'match-time': 'HORA',
+                'match-place': 'LLOC',
+                'btn-get-tickets': 'Obté les teves Entrades',
+                'news-title': 'Últimes Notícies',
+                'btn-read-more': 'Llegir més →',
+                'contact-title': 'Vols ser part de Rugby Cabrera?',
+                'contact-subtitle': 'Si tens passió pel rugby, contacta\'ns. Busquem jugadors, voluntaris i patrocinadors.',
+                'form-name': 'Nom Complet',
+                'form-email': 'Correu Electrònic',
+                'form-message': 'Missatge / Consulta',
+                'btn-send': 'Enviar Missatge'
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active', 'inactive');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.add('inactive');
+                }
+            });
+
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeLanguage(btn.getAttribute('data-lang'));
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'es';
+            changeLanguage(savedLanguage);
+        });
+    </script>
+
+    <!-- Script para la funcionalidad del menú móvil y el desplazamiento con offset -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('main-header');
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href.length > 1) { 
+                        e.preventDefault();
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement && header) {
+                            const headerHeight = header.offsetHeight;
+                            const offsetTop = targetElement.offsetTop - headerHeight - 16; 
+                            
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
 <script>
-const translations = {
-  es: {
-    "nav-home": "Inicio",
-    "nav-teams": "Equipos",
-    "nav-matches": "Partidos",
-    "nav-news": "Noticias",
-    "nav-contact": "Contacto",
-    "hero-title": "MÁS QUE UN JUEGO. ES RUGBY CABRERA.",
-    "hero-subtitle": "Únete a nuestra pasión. Descubre nuestros valores.",
-    "teams-title": "Nuestros Equipos de Cantera",
-    "match-title": "Próximo Partido",
-    "news-title": "Últimas Noticias",
-    "contact-title": "¿Quieres ser parte de Rugby Cabrera?"
-  },
-  ca: {
-    "nav-home": "Inici",
-    "nav-teams": "Equips",
-    "nav-matches": "Partits",
-    "nav-news": "Notícies",
-    "nav-contact": "Contacte",
-    "hero-title": "MÉS QUE UN JOC. ÉS RUGBY CABRERA.",
-    "hero-subtitle": "Uneix-te a la nostra passió. Descobreix els nostres valors.",
-    "teams-title": "Els Nostres Equips de Cantera",
-    "match-title": "Pròxim Partit",
-    "news-title": "Últimes Notícies",
-    "contact-title": "Vols formar part de Rugby Cabrera?"
-  }
-};
-
-function changeLanguage(lang) {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-    btn.classList.toggle("inactive", btn.dataset.lang !== lang);
-  });
-
-  localStorage.setItem("preferredLanguage", lang);
-}
-</script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("preferredLanguage") || "es";
-  changeLanguage(savedLang);
-});
-</script>
-
-<!-- NOTICIAS DESDE GOOGLE SHEETS -->
-<script>
-const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
-
-async function cargarNoticias() {
-  const res = await fetch(SHEET_URL);
-  const raw = await res.text();
-  const json = JSON.parse(raw.substring(47, raw.length - 2));
-  const rows = json.table.rows.map(r => r.c.map(c => c ? c.v : ""));
-  const lang = localStorage.getItem("preferredLanguage") || "es";
-
-  const noticias = rows.map(r => ({
-    id: Number(r[0]),
-    fecha: r[1],
-    seccion: lang === "ca" ? r[5] : r[2],
-    titulo: lang === "ca" ? r[6] : r[3],
-    texto: lang === "ca" ? r[7] : r[4]
-  }));
-
-  ["1","2","3"].forEach(i =>
-    document.getElementById("news-cat-"+i).innerHTML = ""
-  );
-
-  noticias.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha))
-    .forEach(n => {
-      const card = `
-      <div class="bg-slate-800 p-6 rounded-xl shadow w-full">
-        <p class="text-xs text-gray-400 mb-2">${n.fecha}</p>
-        <h3 class="text-xl font-bold club-text-accent mb-2">${n.titulo}</h3>
-        <p class="text-gray-300 mb-2">${n.texto}</p>
-        <p class="text-sm italic text-gray-500">${n.seccion}</p>
-      </div>`;
-      document.getElementById("news-cat-"+n.id).innerHTML += card;
-    });
-}
-
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
+async function cargarNoticias(){try{const res=await fetch(SHEET_URL);const raw=await res.text();const json=JSON.parse(raw.substring(47,raw.length-2));const filas=json.table.rows.map(r=>r.c.map(c=>c?c.v:""));const noticias=filas.map(f=>({id:Number(f[0]),fecha:f[1],seccion:f[2],titulo:f[3],texto:f[4]}));renderNoticias(noticias);}catch(e){console.error(e);}}
+function renderNoticias(lista){const c1=document.getElementById('news-cat-1');const c2=document.getElementById('news-cat-2');const c3=document.getElementById('news-cat-3');c1.innerHTML=c2.innerHTML=c3.innerHTML="";lista.sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));lista.forEach(n=>{const card=`<div class='bg-slate-800 p-6 rounded-2xl shadow-xl'><p class='text-xs text-gray-400 mb-2'>${n.fecha}</p><h3 class='text-xl font-bold club-text-accent mb-2'>${n.titulo}</h3><p class='text-gray-300 mb-4'>${n.texto}</p><p class='text-sm text-gray-500 italic'>${n.seccion}</p></div>`;if(n.id===1)c1.innerHTML+=card;else if(n.id===2)c2.innerHTML+=card;else if(n.id===3)c3.innerHTML+=card;});}
 cargarNoticias();
 </script>
 
 </body>
-</html> 
+</html>
