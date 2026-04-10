@@ -284,7 +284,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-12 club-text-accent text-center" data-i18n="news-title">Últimas Noticias</h2>
                 <div id="news-wrapper" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div id="news-wrapper"></div>
+                    <!-- Las noticias se cargarán aquí dinámicamente -->
                 </div>
             </div>
         </section>
@@ -490,4 +490,47 @@
 
     <!-- Script para cargar noticias desde Google Sheets -->
     <script>
-        const*
+        const SHEET_URL = "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
+
+        async function cargarNoticias() {
+            try {
+                const res = await fetch(SHEET_URL);
+                const raw = await res.text();
+                const json = JSON.parse(raw.substring(47, raw.length - 2));
+                const filas = json.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+                renderNoticias(filas);
+            } catch (error) {
+                console.error('Error al cargar noticias:', error);
+                document.getElementById('news-wrapper').innerHTML = '<p class="text-gray-400 col-span-3 text-center">Error al cargar noticias. Por favor, intenta más tarde.</p>';
+            }
+        }
+
+        function renderNoticias(lista) {
+            const wrapper = document.getElementById('news-wrapper');
+            wrapper.innerHTML = '';
+            
+            if (!lista || lista.length === 0) {
+                wrapper.innerHTML = '<p class="text-gray-400 col-span-3 text-center">No hay noticias disponibles.</p>';
+                return;
+            }
+            
+            lista.forEach(fila => {
+                if (fila && fila[0] && fila[1]) {
+                    const newsCard = document.createElement('div');
+                    newsCard.className = 'news-card';
+                    newsCard.innerHTML = `
+                        <h3>${fila[0]}</h3>
+                        <p>${fila[1]}</p>
+                        ${fila[2] ? `<a href="${fila[2]}" target="_blank" data-i18n="btn-read-more">Leer más →</a>` : ''}
+                    `;
+                    wrapper.appendChild(newsCard);
+                }
+            });
+        }
+
+        // Cargar noticias cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', cargarNoticias);
+    </script>
+
+</body>
+</html>
