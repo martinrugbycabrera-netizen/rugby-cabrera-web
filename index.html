@@ -488,20 +488,21 @@
         });
     </script>
 
-    <!-- Script para cargar noticias desde Google Sheets -->
+    <!-- Script para cargar noticias desde Google Sheets con JSONP -->
     <script>
-        const SHEET_URL = "https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tqx=out:json";
-
-        async function cargarNoticias() {
-            try {
-                const res = await fetch(SHEET_URL);
-                const raw = await res.text();
-                const json = JSON.parse(raw.substring(47, raw.length - 2));
-                const filas = json.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+        // Función callback que recibe los datos del Google Sheet
+        function handleNewsData(response) {
+            console.log("Datos recibidos del Sheet:", response);
+            
+            if (response.table && response.table.rows && response.table.rows.length > 0) {
+                const filas = response.table.rows.map(r => 
+                    r.c.map(c => c ? c.v : '')
+                );
+                console.log("Filas procesadas:", filas);
                 renderNoticias(filas);
-            } catch (error) {
-                console.error('Error al cargar noticias:', error);
-                document.getElementById('news-wrapper').innerHTML = '<p class="text-gray-400 col-span-3 text-center">Error al cargar noticias. Por favor, intenta más tarde.</p>';
+            } else {
+                console.warn("No hay datos en el Sheet");
+                mostrarNoticiasDemo();
             }
         }
 
@@ -510,27 +511,60 @@
             wrapper.innerHTML = '';
             
             if (!lista || lista.length === 0) {
-                wrapper.innerHTML = '<p class="text-gray-400 col-span-3 text-center">No hay noticias disponibles.</p>';
+                mostrarNoticiasDemo();
                 return;
             }
             
-            lista.forEach(fila => {
-                if (fila && fila[0] && fila[1]) {
+            console.log("Renderizando", lista.length, "noticias");
+            
+            lista.forEach((fila, index) => {
+                console.log(`Noticia ${index}:`, fila);
+                
+                // Verifica que al menos tenga título y contenido
+                if (fila && fila.length >= 2 && fila[0] && fila[1]) {
                     const newsCard = document.createElement('div');
                     newsCard.className = 'news-card';
-                    newsCard.innerHTML = `
+                    
+                    let html = `
                         <h3>${fila[0]}</h3>
                         <p>${fila[1]}</p>
-                        ${fila[2] ? `<a href="${fila[2]}" target="_blank" data-i18n="btn-read-more">Leer más →</a>` : ''}
                     `;
+                    
+                    // Si existe URL en la tercera columna, agrega el enlace
+                    if (fila[2] && fila[2].trim() !== '') {
+                        html += `<a href="${fila[2]}" target="_blank" data-i18n="btn-read-more">Leer más →</a>`;
+                    }
+                    
+                    newsCard.innerHTML = html;
                     wrapper.appendChild(newsCard);
                 }
             });
         }
 
-        // Cargar noticias cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', cargarNoticias);
-    </script>
-
-</body>
-</html>
+        function mostrarNoticiasDemo() {
+            console.log("Mostrando noticias de demostración");
+            const wrapper = document.getElementById('news-wrapper');
+            wrapper.innerHTML = '';
+            
+            const noticiasDemo = [
+                {
+                    titulo: "Victoria en el Clásico",
+                    contenido: "Rugby Cabrera logra una emocionante victoria de 28-24 contra el equipo rival. Una actuación magistral de nuestros jugadores.",
+                    enlace: "#"
+                },
+                {
+                    titulo: "Nueva Cantera Sub-8",
+                    contenido: "Presentamos nuestra nueva categoría de cantera Sub-8. Inscripciones abiertas para niños y niñas de 7-8 años.",
+                    enlace: "#"
+                },
+                {
+                    titulo: "Próxima Gira Internacional",
+                    contenido: "Confirmada la gira a Francia para el próximo verano. Estaremos compitiendo contra los mejores equipos europeos.",
+                    enlace: "#"
+                }
+            ];
+            
+            noticiasDemo.forEach(noticia => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'news-card';
+                news](#)*
