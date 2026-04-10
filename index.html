@@ -582,9 +582,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log("DOM cargado, iniciando carga de noticias...");
             
-            // Crear el script con JSONP
+            // Crear el script con JSONP usando la URL pública correcta
             const script = document.createElement('script');
-            script.src = 'https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tq=select+*&sheet=Sheet1&callback=handleNewsData';
+            script.src = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/gviz/tq?gid=0&tq=select%20*&callback=handleNewsData';
             script.onerror = function() {
                 console.error("Error al cargar datos del Google Sheet");
                 mostrarNoticiasDemo();
