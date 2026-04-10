@@ -92,6 +92,7 @@
             font-weight: 600;
             text-decoration: none;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .news-card a:hover {
@@ -520,20 +521,15 @@
             lista.forEach((fila, index) => {
                 console.log(`Noticia ${index}:`, fila);
                 
-                // Verifica que al menos tenga título y contenido
+                // Verifica que al menos tenga título y descripción
                 if (fila && fila.length >= 2 && fila[0] && fila[1]) {
                     const newsCard = document.createElement('div');
                     newsCard.className = 'news-card';
                     
                     let html = `
                         <h3>${fila[0]}</h3>
-                        <p>${fila[1]}</p>
+                        <p>${fila[2] ? fila[2] : fila[1]}</p>
                     `;
-                    
-                    // Si existe URL en la tercera columna, agrega el enlace
-                    if (fila[2] && fila[2].trim() !== '') {
-                        html += `<a href="${fila[2]}" target="_blank" data-i18n="btn-read-more">Leer más →</a>`;
-                    }
                     
                     newsCard.innerHTML = html;
                     wrapper.appendChild(newsCard);
@@ -549,22 +545,43 @@
             const noticiasDemo = [
                 {
                     titulo: "Victoria en el Clásico",
-                    contenido: "Rugby Cabrera logra una emocionante victoria de 28-24 contra el equipo rival. Una actuación magistral de nuestros jugadores.",
-                    enlace: "#"
+                    contenido: "En un emocionante encuentro disputado en Cabrera Stadium, nuestro equipo logró una espectacular victoria de 28-24 frente a su rival. La defensa fue impenetrable en el primer tiempo, mientras que el ataque fue devastador en la segunda mitad."
                 },
                 {
                     titulo: "Nueva Cantera Sub-8",
-                    contenido: "Presentamos nuestra nueva categoría de cantera Sub-8. Inscripciones abiertas para niños y niñas de 7-8 años.",
-                    enlace: "#"
+                    contenido: "Nos complace anunciar la apertura de nuestra nueva categoría de cantera Sub-8. Esta categoría se enfoca en el desarrollo de habilidades fundamentales del rugby con un énfasis en la diversión y el trabajo en equipo. Inscripciones abiertas todo el año."
                 },
                 {
                     titulo: "Próxima Gira Internacional",
-                    contenido: "Confirmada la gira a Francia para el próximo verano. Estaremos compitiendo contra los mejores equipos europeos.",
-                    enlace: "#"
+                    contenido: "Confirmada la gira internacional a Francia para julio y agosto. Nuestro equipo competirá contra los mejores clubes europeos. Esta es una oportunidad única para ganar experiencia internacional y fortalecer nuestras habilidades."
                 }
             ];
             
             noticiasDemo.forEach(noticia => {
                 const newsCard = document.createElement('div');
                 newsCard.className = 'news-card';
-                news](#)*
+                newsCard.innerHTML = `
+                    <h3>${noticia.titulo}</h3>
+                    <p>${noticia.contenido}</p>
+                `;
+                wrapper.appendChild(newsCard);
+            });
+        }
+
+        // Cargar las noticias cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM cargado, iniciando carga de noticias...");
+            
+            // Crear el script con JSONP
+            const script = document.createElement('script');
+            script.src = 'https://docs.google.com/spreadsheets/d/1yVuH3kAm5f-uNI4jFL5Ypl2ehPaRZRVabmG98EJnU7I/gviz/tq?tq=select+*&sheet=Sheet1&callback=handleNewsData';
+            script.onerror = function() {
+                console.error("Error al cargar datos del Google Sheet");
+                mostrarNoticiasDemo();
+            };
+            document.head.appendChild(script);
+        });
+    </script>
+
+</body>
+</html>
