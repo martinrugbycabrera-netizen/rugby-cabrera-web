@@ -545,54 +545,50 @@
         });
     </script>
 
-    <!-- Script para Formspree -->
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formMessage = document.getElementById('formMessage');
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            
-            // Mostrar estado de envío
-            submitButton.disabled = true;
-            submitButton.textContent = 'Enviando...';
-            formMessage.className = 'form-message';
-            formMessage.textContent = '';
-            
-            // Crear FormData
-            const formData = new FormData(this);
-            
-            // Enviar a Formspree
-            fetch('https://formspree.io/f/mzdklkjj', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Éxito
-                    formMessage.className = 'form-message success';
-                    formMessage.textContent = '✓ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.';
-                    document.getElementById('contactForm').reset();
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalButtonText;
-                } else {
-                    throw new Error('Error en la respuesta');
-                }
-            })
-            .catch(error => {
-                // Error
-                formMessage.className = 'form-message error';
-                formMessage.textContent = '✗ Error al enviar el mensaje. Por favor, intenta de nuevo.';
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-                console.error('Error:', error);
-            });
-        });
-  <script>
+<!-- Script para Formspree -->
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const formMessage = document.getElementById('formMessage');
+  const submitButton = this.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton.textContent;
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Enviando...';
+  formMessage.className = 'form-message';
+  formMessage.textContent = '';
+
+  const formData = new FormData(this);
+
+  fetch('https://formspree.io/f/mzdklkjj', {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      formMessage.className = 'form-message success';
+      formMessage.textContent = '✓ ¡Mensaje enviado correctamente!';
+      document.getElementById('contactForm').reset();
+    } else {
+      throw new Error('Error en la respuesta');
+    }
+  })
+  .catch(error => {
+    formMessage.className = 'form-message error';
+    formMessage.textContent = '✗ Error al enviar el mensaje.';
+    console.error(error);
+  })
+  .finally(() => {
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+  });
+});
+</script>   <!-- ✅ ESTE CIERRE FALTABA -->
+
 const MATCH_SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/pub?gid=0&single=true&output=csv";
 
