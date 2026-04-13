@@ -592,25 +592,29 @@
                 console.error('Error:', error);
             });
         });
-    </script>
-<script>
+  <script>
 const MATCH_SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/pub?gid=0&single=true&output=csv";
 
 async function cargarProximoPartido() {
-  const lang = localStorage.getItem("preferredLanguage") || "es";
+  const lang = (localStorage.getItem("preferredLanguage") || "es").trim();
 
   const res = await fetch(MATCH_SHEET_URL);
   const text = await res.text();
 
+  // Convertir CSV → array y eliminar cabecera
   const rows = text
     .trim()
     .split("\n")
-    .map(r => r.split(","));
+    .slice(1) // 🔥 elimina la fila de títulos
+    .map(r => r.split(",").map(c => c.trim()));
 
-  // Busca la fila donde columna A = idioma (es / ca)
+  // Buscar fila por idioma
   const row = rows.find(r => r[0] === lang);
-  if (!row) return;
+  if (!row) {
+    console.warn("No se encontró fila para idioma:", lang, rows);
+    return;
+  }
 
   document.getElementById("match-section-title").textContent = row[1];
   document.getElementById("match-title").textContent = row[2];
@@ -620,7 +624,7 @@ async function cargarProximoPartido() {
   document.getElementById("match-place").textContent = row[6];
 }
 
-// Al cargar la página
+// Al cargar
 document.addEventListener("DOMContentLoaded", cargarProximoPartido);
 
 // Al cambiar idioma
