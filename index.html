@@ -135,27 +135,38 @@ changeLanguage(localStorage.getItem("preferredLanguage")||"es");
 <!-- PRÓXIMO PARTIDO DESDE SHEETS (CSV) -->
 <script>
 const MATCH_SHEET_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/pub?gid=0&single=true&output=csv";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/pub?gid=0&single=true&output=csv";
 
-async function cargarProximoPartido(){
-  const lang=(localStorage.getItem("preferredLanguage")||"es").trim();
-  const text=await (await fetch(MATCH_SHEET_URL)).text();
-  const rows=text.trim().split("\n").slice(1).map(r=>r.split(";").map(c=>c.trim()));
-  const row=rows.find(r=>r[0]===lang);
-  if(!row) return;
-  document.getElementById("match-section-title").textContent=row[1];
-  document.getElementById("match-title").textContent=row[2];
-  document.getElementById("match-subtitle").textContent=row[3];
-  document.getElementById("match-date").textContent=row[4];
-  document.getElementById("match-time").textContent=row[5];
-  document.getElementById("match-place").textContent=row[6];
+async function cargarProximoPartido() {
+  const lang = (localStorage.getItem("preferredLanguage") || "es").trim();
+
+  const res = await fetch(MATCH_SHEET_URL);
+  const text = await res.text();
+
+  const rows = text
+    .trim()
+    .split("\n")
+    .slice(1)
+    .map(r => r.split(";").map(c => c.trim()));
+
+  const row = rows.find(r => r[0] === lang);
+  if (!row) return;
+
+  document.getElementById("match-section-title").textContent = row[1];
+  document.getElementById("match-title").textContent = row[2];
+  document.getElementById("match-subtitle").textContent = row[3];
+  document.getElementById("match-date").textContent = row[4];
+  document.getElementById("match-time").textContent = row[5];
+  document.getElementById("match-place").textContent = row[6];
 }
 
 document.addEventListener("DOMContentLoaded", cargarProximoPartido);
-document.querySelectorAll(".lang-btn").forEach(b=>{
-  b.addEventListener("click",()=>setTimeout(cargarProximoPartido,50));
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTimeout(cargarProximoPartido, 50);
+  });
 });
 </script>
-
 </body>
 </html>
