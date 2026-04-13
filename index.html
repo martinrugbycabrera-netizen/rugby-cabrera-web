@@ -595,18 +595,18 @@
     </script>
 <script>
 const MATCH_SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/gviz/tq?tqx=out:json";
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/pub?gid=0&single=true&output=csv";
 
 async function cargarProximoPartido() {
   const lang = localStorage.getItem("preferredLanguage") || "es";
 
   const res = await fetch(MATCH_SHEET_URL);
-  const raw = await res.text();
-  const json = JSON.parse(raw.substring(47, raw.length - 2));
+  const text = await res.text();
 
-  const rows = json.table.rows.map(r =>
-    r.c.map(c => (c ? c.v : ""))
-  );
+  const rows = text
+    .trim()
+    .split("\n")
+    .map(r => r.split(","));
 
   // Busca la fila donde columna A = idioma (es / ca)
   const row = rows.find(r => r[0] === lang);
