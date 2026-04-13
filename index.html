@@ -603,8 +603,7 @@ async function cargarProximoPartido() {
     .trim()
     .split("\n")
     .slice(1) // 🔥 elimina la fila de títulos
-    .map(r => r.split(",").map(c => c.trim()));
-
+   .map(r => r.split(";").map(c => c.trim()));
   // Buscar fila por idioma
   const row = rows.find(r => r[0] === lang);
   if (!row) {
