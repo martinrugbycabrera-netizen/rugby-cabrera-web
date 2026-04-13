@@ -248,68 +248,49 @@
     <!-- SECCIÓN PRÓXIMOS PARTIDOS -->
 <section id="partidos" class="py-20 bg-white">
 
-  <!-- TÍTULO -->
   <h2
-    class="text-4xl font-bold text-center mb-12 club-text-accent"
-    data-i18n="match-section-title"
-  >
-    Próximos Partidos
+    id="match-section-title"
+    class="text-4xl font-bold text-center mb-12 club-text-accent">
   </h2>
 
-  <!-- TARJETA DEL PARTIDO -->
   <div class="max-w-3xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
 
     <!-- BLOQUE AZUL -->
     <div class="club-bg-dark py-12 text-center">
       <h3
-        class="text-5xl font-extrabold text-white mb-2"
-        data-i18n="match-club"
-      >
-        RUGBY CABRERA
+        id="match-title"
+        class="text-5xl font-extrabold text-white mb-2">
       </h3>
 
       <p
-        class="text-xl text-gray-200"
-        data-i18n="match-subtitle"
-      >
-        Trobada oficial EDR
+        id="match-subtitle"
+        class="text-xl text-gray-200">
       </p>
     </div>
 
     <!-- BLOQUE BLANCO -->
-    <div class="bg-white py-10 text-center">
-      <div class="space-y-4">
-
-        <p class="text-lg font-semibold text-gray-900">
-          📅 <strong data-i18n="match-date-label">Fecha:</strong>
-          <span data-i18n="match-date-value">18 de abril de 2026</span>
-        </p>
-
-        <p class="text-lg font-semibold text-gray-900">
-          ⏰ <strong data-i18n="match-time-label">Hora:</strong>
-          <span data-i18n="match-time-value">12:30 h</span>
-        </p>
-
-        <p class="text-lg font-semibold text-gray-900">
-          📍 <strong data-i18n="match-place-label">Lugar:</strong>
-          <span data-i18n="match-place-value">Cabrera Stadium</span>
-        </p>
-
-      </div>
+    <div class="bg-white py-10 text-center space-y-4">
+      <p class="text-lg font-semibold text-gray-900">
+        📅 <span id="match-date"></span>
+      </p>
+      <p class="text-lg font-semibold text-gray-900">
+        ⏰ <span id="match-time"></span>
+      </p>
+      <p class="text-lg font-semibold text-gray-900">
+        📍 <span id="match-place"></span>
+      </p>
     </div>
 
     <!-- BLOQUE ROJO -->
     <div class="bg-red-600 py-6 text-center">
-      <span
-        class="text-white text-xl font-bold uppercase tracking-wide"
-        data-i18n="match-free-entry"
-      >
+      <span class="text-white text-xl font-bold uppercase tracking-wide">
         Entrada gratis
       </span>
     </div>
 
   </div>
 
+</section>
 </section>
         
         <!-- SECCIÓN NOTICIAS DESTACADAS -->
@@ -612,6 +593,42 @@
             });
         });
     </script>
+<script>
+const MATCH_SHEET_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSKDn3GJy4hXjEEWXf6Q_S2EPo23aVn3iTPMqCgTMGsbpcfI8rd9K2T8uvGcBYfWpeEfdf7roqlXtsY/gviz/tq?tqx=out:json";
 
+async function cargarProximoPartido() {
+  const lang = localStorage.getItem("preferredLanguage") || "es";
+
+  const res = await fetch(MATCH_SHEET_URL);
+  const raw = await res.text();
+  const json = JSON.parse(raw.substring(47, raw.length - 2));
+
+  const rows = json.table.rows.map(r =>
+    r.c.map(c => (c ? c.v : ""))
+  );
+
+  // Busca la fila donde columna A = idioma (es / ca)
+  const row = rows.find(r => r[0] === lang);
+  if (!row) return;
+
+  document.getElementById("match-section-title").textContent = row[1];
+  document.getElementById("match-title").textContent = row[2];
+  document.getElementById("match-subtitle").textContent = row[3];
+  document.getElementById("match-date").textContent = row[4];
+  document.getElementById("match-time").textContent = row[5];
+  document.getElementById("match-place").textContent = row[6];
+}
+
+// Al cargar la página
+document.addEventListener("DOMContentLoaded", cargarProximoPartido);
+
+// Al cambiar idioma
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setTimeout(cargarProximoPartido, 50);
+  });
+});
+</script>
 </body>
 </html>
