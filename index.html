@@ -503,48 +503,6 @@
         });
     </script>
 
-    <!-- Script para mostrar noticias -->
-    <script>
-        function mostrarNoticias() {
-            const wrapper = document.getElementById('news-wrapper');
-            wrapper.innerHTML = '';
-            
-            const noticias = [
-                {
-                    titulo: "Victoria en el Clásico",
-                    contenido: "En un emocionante encuentro disputado en Cabrera Stadium, nuestro equipo logró una espectacular victoria de 28-24 frente a su rival. La defensa fue impenetrable en el primer tiempo, mientras que el ataque fue devastador en la segunda mitad.",
-                    fecha: "15/04/2025"
-                },
-                {
-                    titulo: "Nueva Cantera Sub-8",
-                    contenido: "Nos complace anunciar la apertura de nuestra nueva categoría de cantera Sub-8. Esta categoría se enfoca en el desarrollo de habilidades fundamentales del rugby con un énfasis en la diversión y el trabajo en equipo. Inscripciones abiertas todo el año.",
-                    fecha: "10/04/2025"
-                },
-                {
-                    titulo: "Próxima Gira Internacional",
-                    contenido: "Confirmada la gira internacional a Francia para julio y agosto. Nuestro equipo competirá contra los mejores clubes europeos. Esta es una oportunidad única para ganar experiencia internacional y fortalecer nuestras habilidades.",
-                    fecha: "05/04/2025"
-                }
-            ];
-            
-            noticias.forEach(noticia => {
-                const newsCard = document.createElement('div');
-                newsCard.className = 'news-card';
-                newsCard.innerHTML = `
-                    <h3>${noticia.titulo}</h3>
-                    <p>${noticia.contenido}</p>
-                    <small style="color: #9ca3af; font-size: 0.75rem;">📅 ${noticia.fecha}</small>
-                `;
-                wrapper.appendChild(newsCard);
-            });
-        }
-
-        // Mostrar noticias cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', function() {
-            mostrarNoticias();
-        });
-    </script>
-
 <!-- Script para Formspree -->
 <script>
 document.getElementById('contactForm').addEventListener('submit', function(e) {
