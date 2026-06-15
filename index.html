@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escuela de Rugby Cabrera | Inicio</title>
+    <title>Rugby Cabrera | Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -135,10 +135,10 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex justify-between items-center gap-2">
             <div class="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                 <div class="bg-white rounded-full p-1 shrink-0">
-                    <img src="assets/logo-cabrera.png" alt="Logo Escuela de Rugby Cabrera" class="h-8 w-8 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain">
+                    <img src="assets/logo-cabrera.png" alt="Logo Rugby Cabrera" class="h-8 w-8 sm:h-10 sm:w-10 md:h-11 md:w-11 object-contain">
                 </div>
                 <span id="club-title" class="text-base sm:text-lg md:text-2xl font-bold club-text-accent leading-tight whitespace-normal sm:whitespace-nowrap">
-                    Escuela de Rugby Cabrera
+                    RUGBY CABRERA
                 </span>
             </div>
 
@@ -151,14 +151,15 @@
                 <a href="#contacto" class="hover:club-text-accent transition duration-300" data-i18n="nav-contact">Contacto</a>
             </div>
 
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+            <div class="flex items-center gap-1 sm:gap-2 shrink-0">
                 <button id="lang-es" class="lang-btn active" data-lang="es" aria-label="Español">
-                    <span class="lang-top">Idioma</span>
                     <span class="lang-bottom">ESP</span>
                 </button>
                 <button id="lang-ca" class="lang-btn inactive" data-lang="ca" aria-label="Català">
-                    <span class="lang-top">Idioma</span>
                     <span class="lang-bottom">CAT</span>
+                </button>
+                <button id="lang-en" class="lang-btn inactive" data-lang="en" aria-label="English">
+                    <span class="lang-bottom">ENG</span>
                 </button>
 
                 <button id="mobile-menu-btn" class="md:hidden ml-1 p-2 rounded-md hover:bg-slate-700 transition duration-300 focus:outline-none" aria-label="Abrir menú">
@@ -198,51 +199,57 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-3xl sm:text-4xl font-bold mb-4 club-text-accent" data-i18n="teams-title">Nuestros Equipos de Cantera</h2>
-                    <p class="text-xl text-gray-300 mb-12 max-w-5xl mx-auto">
+                    <p class="text-xl text-gray-300 mb-12 max-w-5xl mx-auto" data-i18n="teams-subtitle">
                         Fomentamos el amor por el rugby desde las edades más tempranas. Cada categoría se enfoca en el desarrollo de habilidades motoras, trabajo en equipo y, sobre todo, la diversión.
                     </p>
 
                     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 6</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Pre-iniciación </h3>
-                            <p class="text-gray-400 text-sm">Introducción al juego con foco en el movimiento, psicomotricidad y la diversión. Entrenos L y V de 17:30 a 18:30</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub6-title">Pre-iniciación</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub6-desc">Introducción al juego con foco en el movimiento, psicomotricidad y la diversión. Entrenos L y V de 17:30 a 18:30</p>
                         </div>
 
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 8</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Iniciación al Contacto</h3>
-                            <p class="text-gray-400 text-sm">Se introducen gradualmente las reglas básicas y el contacto controlado. Entrenos L y V de 17:30 a 19:00</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub8-title">Iniciación al Contacto</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub8-desc">Se introducen gradualmente las reglas básicas y el contacto controlado. Entrenos L y V de 17:30 a 19:00</p>
                         </div>
 
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 10</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Desarrollo de Habilidades</h3>
-                            <p class="text-gray-400 text-sm">Énfasis en el pase, el placaje y las formaciones de juego sencillas. Entrenos L y V de 17:30 a 19:00</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub10-title">Desarrollo de Habilidades</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub10-desc">Énfasis en el pase, el placaje y las formaciones de juego sencillas. Entrenos L y V de 17:30 a 19:00</p>
                         </div>
 
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 12</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Juego Completo</h3>
-                            <p class="text-gray-400 text-sm">Aplicación de tácticas de juego más complejas y participación en torneos. Entrenos L y V de 17:30 a 19:00</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub12-title">Juego Completo</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub12-desc">Aplicación de tácticas de juego más complejas y participación en torneos. Entrenos L y V de 17:30 a 19:00</p>
                         </div>
 
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 14</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Competición Intermedia</h3>
-                            <p class="text-gray-400 text-sm">Intensificación de entrenamientos con énfasis en tácticas avanzadas y preparación física. Entrenos L y V de 18:00 a 19:30</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub14-title">Competición Intermedia</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub14-desc">Intensificación de entrenamientos con énfasis en tácticas avanzadas y preparación física. Entrenos L y V de 18:00 a 19:30</p>
                         </div>
 
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 16</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Rugby Competitivo</h3>
-                            <p class="text-gray-400 text-sm">Formación completa en contacto total. Desarrollo físico y técnico avanzado. Participación en campeonatos regionales. Entrenos L, M y V de 18:00 a 19:45</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub16-title">Rugby Competitivo</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub16-desc">Formación completa en contacto total. Desarrollo físico y técnico avanzado. Participación en campeonatos regionales. Entrenos L, M y V de 18:00 a 19:45</p>
                         </div>
 
                         <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
                             <p class="text-5xl font-extrabold club-text-accent mb-2">Sub 19</p>
-                            <h3 class="text-lg font-semibold text-white mb-2">Élite de Cantera</h3>
-                            <p class="text-gray-400 text-sm">Entrenamientos profesionales con énfasis en fuerza, resistencia y estrategia. Participación en competiciones de máximo nivel. Entrenos L, M, J y V de 18:30 a 20:15</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-sub19-title">Élite de Cantera</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-sub19-desc">Entrenamientos profesionales con énfasis en fuerza, resistencia y estrategia. Participación en competiciones de máximo nivel. Entrenos L, M, J y V de 18:30 a 20:15</p>
+                        </div>
+
+                        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-500 transform hover:scale-105">
+                            <p class="text-5xl font-extrabold club-text-accent mb-2" data-i18n="team-seniors-label">Seniors</p>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="team-seniors-title">Equipo Mayor</h3>
+                            <p class="text-gray-400 text-sm" data-i18n="team-seniors-desc">Competición profesional de rugby. Entrenamientos intensos y participación en todas las competiciones oficiales. Entrenos V de 19:00 a 20:30</p>
                         </div>
                     </div>
                 </div>
@@ -316,9 +323,9 @@
                 </a>
             </div>
 
-            <p class="text-lg font-medium club-text-accent mb-2">Escuela de Rugby Cabrera</p>
+            <p class="text-lg font-medium club-text-accent mb-2">Rugby Cabrera</p>
             <p class="text-gray-400 mb-4">Av. de la Zona Esportiva, 08349 Cabrera de Mar, Barcelona | Tel: +34 677 45 65 71</p>
-            <p class="text-sm text-gray-600">&copy; 2025 Escuela de Rugby Cabrera. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-600">&copy; 2025 Rugby Cabrera. <span data-i18n="footer-rights">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 
@@ -338,6 +345,24 @@
                 'btn-next-matches': 'Próximos Partidos',
                 'btn-join-team': 'Únete al Equipo',
                 'teams-title': 'Nuestros Equipos de Cantera',
+                'teams-subtitle': 'Fomentamos el amor por el rugby desde las edades más tempranas. Cada categoría se enfoca en el desarrollo de habilidades motoras, trabajo en equipo y, sobre todo, la diversión.',
+                'team-sub6-title': 'Pre-iniciación',
+                'team-sub6-desc': 'Introducción al juego con foco en el movimiento, psicomotricidad y la diversión. Entrenos L y V de 17:30 a 18:30',
+                'team-sub8-title': 'Iniciación al Contacto',
+                'team-sub8-desc': 'Se introducen gradualmente las reglas básicas y el contacto controlado. Entrenos L y V de 17:30 a 19:00',
+                'team-sub10-title': 'Desarrollo de Habilidades',
+                'team-sub10-desc': 'Énfasis en el pase, el placaje y las formaciones de juego sencillas. Entrenos L y V de 17:30 a 19:00',
+                'team-sub12-title': 'Juego Completo',
+                'team-sub12-desc': 'Aplicación de tácticas de juego más complejas y participación en torneos. Entrenos L y V de 17:30 a 19:00',
+                'team-sub14-title': 'Competición Intermedia',
+                'team-sub14-desc': 'Intensificación de entrenamientos con énfasis en tácticas avanzadas y preparación física. Entrenos L y V de 18:00 a 19:30',
+                'team-sub16-title': 'Rugby Competitivo',
+                'team-sub16-desc': 'Formación completa en contacto total. Desarrollo físico y técnico avanzado. Participación en campeonatos regionales. Entrenos L, M y V de 18:00 a 19:45',
+                'team-sub19-title': 'Élite de Cantera',
+                'team-sub19-desc': 'Entrenamientos profesionales con énfasis en fuerza, resistencia y estrategia. Participación en competiciones de máximo nivel. Entrenos L, M, J y V de 18:30 a 20:15',
+                'team-seniors-label': 'Seniors',
+                'team-seniors-title': 'Equipo Mayor',
+                'team-seniors-desc': 'Competición profesional de rugby. Entrenamientos intensos y participación en todas las competiciones oficiales. Entrenos V de 19:00 a 20:30',
                 'match-section-title': 'Próximos Partidos',
                 'news-title': 'Últimas Noticias',
                 'gallery-title': 'Galería de Fotos',
@@ -351,7 +376,8 @@
                 'btn-send': 'Enviar Mensaje',
                 'loading-match': 'Cargando partido...',
                 'loading-news': 'Cargando noticias...',
-                'no-data': 'No hay datos disponibles'
+                'no-data': 'No hay datos disponibles',
+                'footer-rights': 'Todos los derechos reservados.'
             },
             ca: {
                 'nav-home': 'Inici',
@@ -365,6 +391,24 @@
                 'btn-next-matches': 'Pròxims Partits',
                 'btn-join-team': "Uneix-te a l'Equip",
                 'teams-title': 'Els Nostres Equips de Cantera',
+                'teams-subtitle': 'Fomentem l\'amor pel rugby des de les edats més tempranes. Cada categoria es centra en el desenvolupament de habilitats motores, treball en equip i, sobretot, la diversió.',
+                'team-sub6-title': 'Pre-iniciació',
+                'team-sub6-desc': 'Introducció al joc amb focus en el moviment, psicomotricitat i la diversió. Entrenamientos L i V de 17:30 a 18:30',
+                'team-sub8-title': 'Iniciació al Contacte',
+                'team-sub8-desc': 'S\'introdueixen gradualment les regles bàsiques i el contacte controlat. Entrenamientos L i V de 17:30 a 19:00',
+                'team-sub10-title': 'Desenvolupament de Habilitats',
+                'team-sub10-desc': 'Èmfasi en el passe, l\'abordatge i les formacions de joc simples. Entrenamientos L i V de 17:30 a 19:00',
+                'team-sub12-title': 'Joc Complet',
+                'team-sub12-desc': 'Aplicació de tàctiques de joc més complexes i participació en torneigs. Entrenamientos L i V de 17:30 a 19:00',
+                'team-sub14-title': 'Competició Intermèdia',
+                'team-sub14-desc': 'Intensificació dels entrenamientos amb èmfasi en tàctiques avançades i preparació física. Entrenamientos L i V de 18:00 a 19:30',
+                'team-sub16-title': 'Rugby Competitiu',
+                'team-sub16-desc': 'Formació completa en contacte total. Desenvolupament físic i tècnic avançat. Participació en campionats regionals. Entrenamientos L, M i V de 18:00 a 19:45',
+                'team-sub19-title': 'Élite de Cantera',
+                'team-sub19-desc': 'Entrenamientos professionals amb èmfasi en força, resistència i estratègia. Participació en competicions de màxim nivell. Entrenamientos L, M, J i V de 18:30 a 20:15',
+                'team-seniors-label': 'Seniors',
+                'team-seniors-title': 'Equip Major',
+                'team-seniors-desc': 'Competició professional de rugby. Entrenamientos intensos i participació en totes les competicions oficials. Entrenamientos V de 19:00 a 20:30',
                 'match-section-title': 'Pròxims Partits',
                 'news-title': 'Últimes Notícies',
                 'gallery-title': 'Galeria de Fotos',
@@ -378,7 +422,54 @@
                 'btn-send': 'Enviar Missatge',
                 'loading-match': 'Carregant partit...',
                 'loading-news': 'Carregant notícies...',
-                'no-data': 'No hi ha dades disponibles'
+                'no-data': 'No hi ha dades disponibles',
+                'footer-rights': 'Tots els drets reservats.'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-teams': 'Teams',
+                'nav-matches': 'Matches',
+                'nav-news': 'News',
+                'nav-gallery': 'Gallery',
+                'nav-contact': 'Contact',
+                'hero-title': 'MORE THAN A GAME. IT\'S RUGBY CABRERA.',
+                'hero-subtitle': 'Join our passion. Discover our values and upcoming matches.',
+                'btn-next-matches': 'Upcoming Matches',
+                'btn-join-team': 'Join the Team',
+                'teams-title': 'Our Youth Teams',
+                'teams-subtitle': 'We foster a love for rugby from the earliest ages. Each category focuses on developing motor skills, teamwork, and above all, having fun.',
+                'team-sub6-title': 'Pre-training',
+                'team-sub6-desc': 'Introduction to the game with focus on movement, psychomotricity and fun. Training Mon and Wed from 5:30 PM to 6:30 PM',
+                'team-sub8-title': 'Contact Initiation',
+                'team-sub8-desc': 'Basic rules and controlled contact are gradually introduced. Training Mon and Wed from 5:30 PM to 7:00 PM',
+                'team-sub10-title': 'Skills Development',
+                'team-sub10-desc': 'Emphasis on passing, tackling and simple game formations. Training Mon and Wed from 5:30 PM to 7:00 PM',
+                'team-sub12-title': 'Complete Game',
+                'team-sub12-desc': 'Application of more complex game tactics and tournament participation. Training Mon and Wed from 5:30 PM to 7:00 PM',
+                'team-sub14-title': 'Intermediate Competition',
+                'team-sub14-desc': 'Intensification of training with emphasis on advanced tactics and physical preparation. Training Mon and Wed from 6:00 PM to 7:30 PM',
+                'team-sub16-title': 'Competitive Rugby',
+                'team-sub16-desc': 'Complete full-contact training. Advanced physical and technical development. Participation in regional championships. Training Mon, Tue and Wed from 6:00 PM to 7:45 PM',
+                'team-sub19-title': 'Elite Squad',
+                'team-sub19-desc': 'Professional training with emphasis on strength, endurance and strategy. Participation in top-level competitions. Training Mon, Tue, Thu and Fri from 6:30 PM to 8:15 PM',
+                'team-seniors-label': 'Seniors',
+                'team-seniors-title': 'Senior Team',
+                'team-seniors-desc': 'Professional rugby competition. Intense training and participation in all official competitions. Training Fri from 7:00 PM to 8:30 PM',
+                'match-section-title': 'Upcoming Matches',
+                'news-title': 'Latest News',
+                'gallery-title': 'Photo Gallery',
+                'gallery-subtitle': 'Check out the best moments from our training sessions, matches and events.',
+                'btn-view-gallery': 'View Full Gallery',
+                'contact-title': 'Want to be part of Rugby Cabrera?',
+                'contact-subtitle': 'If you have a passion for rugby, contact us. We are looking for players, volunteers and sponsors.',
+                'form-name': 'Full Name',
+                'form-email': 'Email Address',
+                'form-message': 'Message / Question',
+                'btn-send': 'Send Message',
+                'loading-match': 'Loading match...',
+                'loading-news': 'Loading news...',
+                'no-data': 'No data available',
+                'footer-rights': 'All rights reserved.'
             }
         };
 
@@ -437,12 +528,12 @@
 
         function setClubTitle(lang) {
             const title = document.getElementById('club-title');
-            title.textContent = lang === 'ca' ? 'Escola de Rugbi Cabrera' : 'Escuela de Rugby Cabrera';
+            title.textContent = 'RUGBY CABRERA';
+            document.documentElement.lang = lang;
         }
 
         function changeLanguage(lang) {
             currentLang = lang;
-            document.documentElement.lang = lang;
             setClubTitle(lang);
 
             document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -476,11 +567,17 @@
         }
 
         function getMatchRow() {
-            return currentLang === 'ca' ? sheetData[1] : sheetData[0];
+            return currentLang === 'ca' ? sheetData[1] : (currentLang === 'en' ? sheetData[2] : sheetData[0]);
         }
 
         function getNewsRows() {
-            return currentLang === 'ca' ? [sheetData[6], sheetData[7], sheetData[8]] : [sheetData[3], sheetData[4], sheetData[5]];
+            if (currentLang === 'ca') {
+                return [sheetData[6], sheetData[7], sheetData[8]];
+            } else if (currentLang === 'en') {
+                return [sheetData[9], sheetData[10], sheetData[11]];
+            } else {
+                return [sheetData[3], sheetData[4], sheetData[5]];
+            }
         }
 
         function renderMatchCard(row) {
@@ -539,21 +636,21 @@
         function renderFallbackContent() {
             document.getElementById('match-wrapper').innerHTML = `
                 <div class="club-bg-dark py-12 text-center text-white">
-                    <h3 class="text-3xl font-bold mb-2">${currentLang === 'ca' ? 'Escola de Rugbi Cabrera' : 'Escuela de Rugby Cabrera'}</h3>
-                    <p class="text-xl text-gray-200">Trobada oficial EDR</p>
+                    <h3 class="text-3xl font-bold mb-2">Rugby Cabrera</h3>
+                    <p class="text-xl text-gray-200">Official Match</p>
                 </div>
                 <div class="bg-white py-10 text-center">
-                    <p class="text-gray-600">No se pudieron cargar los datos.</p>
+                    <p class="text-gray-600">Could not load data.</p>
                 </div>
                 <div class="py-6 text-center" style="background-color: var(--color-secundario-rojo);">
-                    <span class="text-white text-xl font-bold uppercase tracking-wide">Entrada gratis</span>
+                    <span class="text-white text-xl font-bold uppercase tracking-wide">Free Entry</span>
                 </div>
             `;
 
             document.getElementById('news-wrapper').innerHTML = `
-                <div class="news-card"><h3>Noticia</h3><p>Datos no disponibles.</p></div>
-                <div class="news-card"><h3>Noticia</h3><p>Datos no disponibles.</p></div>
-                <div class="news-card"><h3>Noticia</h3><p>Datos no disponibles.</p></div>
+                <div class="news-card"><h3>News</h3><p>Data not available.</p></div>
+                <div class="news-card"><h3>News</h3><p>Data not available.</p></div>
+                <div class="news-card"><h3>News</h3><p>Data not available.</p></div>
             `;
         }
 
